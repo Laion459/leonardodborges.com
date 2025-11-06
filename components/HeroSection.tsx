@@ -1,44 +1,18 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "@/lib/gsap";
 import { PlexusBackground } from "@/components/PlexusBackground";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const portraitRef = useRef<HTMLDivElement | null>(null);
-  const cubeRef = useRef<HTMLDivElement | null>(null);
   const subtitleRef = useRef<HTMLParagraphElement | null>(null);
-  const [isDriveActive, setIsDriveActive] = useState<boolean>(false);
-  const driveTriggeredRef = useRef<boolean>(false);
-
-  const triggerDrive = () => {
-    if (driveTriggeredRef.current) return;
-    driveTriggeredRef.current = true;
-    setIsDriveActive(true);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!driveTriggeredRef.current && window.scrollY > window.innerHeight * 0.1) {
-        triggerDrive();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const [isLocked, setIsLocked] = useState<boolean>(false);
 
   useEffect(() => {
     const section = sectionRef.current;
-    const portrait = portraitRef.current;
-    const cube = cubeRef.current;
     const subtitle = subtitleRef.current;
-    if (!section || !portrait || !cube || !subtitle) return;
+    if (!section || !subtitle) return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
@@ -47,113 +21,111 @@ export function HeroSection() {
         section.querySelectorAll("[data-hero-animate]") || [],
         { y: 80, opacity: 0 },
         { y: 0, opacity: 1, duration: 1, stagger: 0.12 }
-      )
-        .fromTo(portrait, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2 }, "<" )
-        .fromTo(cube, { yPercent: -60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1, ease: "power3.out" }, "<0.2" )
-        .fromTo(subtitle.querySelectorAll("span") || [], { yPercent: 100 }, { yPercent: 0, duration: 1, stagger: 0.08 }, "<");
+      ).fromTo(
+        subtitle.querySelectorAll("span") || [],
+        { yPercent: 100 },
+        { yPercent: 0, duration: 1, stagger: 0.08 },
+        "<0.2"
+      );
     }, section);
 
-    const handleMouseMove = (event: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const x = (event.clientX / innerWidth - 0.5) * 30;
-      const y = (event.clientY / innerHeight - 0.5) * 30;
-
-      gsap.to(portrait, { x: x * 0.6, y: y * 0.6, duration: 1.2, ease: "power3.out" });
-      gsap.to(cube, { x: -x * 1.2, y: -y * 1.2, duration: 1.2, ease: "power3.out" });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      ctx.revert();
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    if (!isDriveActive) return;
-
-    const portrait = portraitRef.current;
-    const cube = cubeRef.current;
-    if (!portrait || !cube) return;
-
-    const tl = gsap.timeline();
-    tl.to(portrait, { yPercent: -10, duration: 1, ease: "power4.out" }).to(
-      cube,
-      { yPercent: 20, rotation: 360, duration: 1.2, ease: "power4.out" },
-      "<"
-    );
-  }, [isDriveActive]);
-
-  const handleDriveClick = () => {
-    triggerDrive();
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+  const handleLockToggle = () => {
+    setIsLocked((previous) => !previous);
   };
 
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen flex-col justify-between overflow-hidden px-5 pb-10 pt-24 text-foreground sm:px-6 md:px-10 lg:px-16 xl:px-24"
+      className="relative flex min-h-screen flex-col justify-between overflow-hidden px-5 pb-12 pt-24 text-foreground sm:px-6 md:px-10 lg:px-16 xl:px-24"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0 -z-20">
         <PlexusBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
       </div>
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.15),_transparent_60%)]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/60 to-background" />
 
-      <header className="max-w-5xl space-y-5" data-hero-animate>
-        <p className="text-[0.65rem] uppercase tracking-[0.32em] text-accent sm:text-xs sm:tracking-[0.38em]">
-          Leonardo Dario Borges
+      <header className="max-w-5xl space-y-6" data-hero-animate>
+        <p className="text-[0.62rem] uppercase tracking-[0.36em] text-accent sm:text-xs sm:tracking-[0.4em]">
+          Leonardo Dario Borges — Desenvolvedor de Software
         </p>
-        <h1 className="font-display text-[2.7rem] uppercase leading-[1.05] tracking-[0.1em] sm:text-5xl sm:tracking-[0.14em] md:text-[3.6rem] md:tracking-[0.16em] lg:text-6xl lg:tracking-[0.18em] xl:text-7xl">
-          Desenvolvedor de Software
-          <br className="hidden sm:block" />
-          <span className="block text-accent">Experiências Imersivas</span>
+        <h1 className="font-display text-[3rem] uppercase leading-[1.03] tracking-[0.1em] sm:text-[3.4rem] sm:tracking-[0.14em] md:text-[4.2rem] md:tracking-[0.16em] lg:text-[4.8rem] xl:text-[5.4rem]">
+          Sempre levando a luta para o código.
+          <span className="block text-accent">Construindo experiências imersivas, on e off track.</span>
         </h1>
-        <p ref={subtitleRef} className="overflow-hidden text-sm text-foreground/70 sm:text-base md:text-lg">
-          <span className="inline-block">Redefinindo limites digitais,</span>{" "}
-          <span className="inline-block">criando soluções</span>{" "}
-          <span className="inline-block">que combinam design brutalista,</span>{" "}
-          <span className="inline-block">animações avançadas</span>{" "}
-          <span className="inline-block">e engenharia de software.</span>
+        <p ref={subtitleRef} className="space-y-2 text-sm text-foreground/70 sm:text-base md:text-lg">
+          <span className="block overflow-hidden">
+            <span className="inline-block">Desde 2019, transformo estratégias digitais em histórias interativas,</span>
+          </span>
+          <span className="block overflow-hidden">
+            <span className="inline-block">usando Next.js, GSAP e engenharia de software para entregar performance real.</span>
+          </span>
+          <span className="block overflow-hidden">
+            <span className="inline-block">Este é o meu paddock — tudo que acelera minha trajetória como dev.</span>
+          </span>
         </p>
       </header>
 
-      <div className="relative mt-10 flex h-[48vh] items-center justify-center md:mt-4 md:h-[52vh] lg:h-[58vh]">
-        <div
-          ref={portraitRef}
-          className="relative h-full w-[58vw] max-w-[320px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[460px]"
-          data-hero-animate
-        >
-          <div className="absolute inset-0 rounded-full bg-accent/15 blur-3xl" />
-          <Image
-            src="/img/hero-leonardo.png"
-            alt="Leonardo Dario Borges"
-            fill
-            priority
-            className="object-contain object-bottom"
-          />
+      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-end" data-hero-animate>
+        <div className="space-y-6">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-3xl border border-foreground/15 bg-background/60 p-6 backdrop-blur">
+              <p className="text-[0.62rem] uppercase tracking-[0.32em] text-foreground/40">On Track</p>
+              <p className="mt-3 font-display text-3xl uppercase tracking-[0.18em] text-foreground">Resultados em produção</p>
+              <p className="mt-3 text-sm text-foreground/65">
+                Produtos digitais que impulsionam negócios com arquitetura escalável, SEO cirúrgico e microinterações de alto impacto.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-foreground/15 bg-background/60 p-6 backdrop-blur">
+              <p className="text-[0.62rem] uppercase tracking-[0.32em] text-foreground/40">Off Track</p>
+              <p className="mt-3 font-display text-3xl uppercase tracking-[0.18em] text-foreground">Laboratório criativo</p>
+              <p className="mt-3 text-sm text-foreground/65">
+                Explorações com arte generativa, talks e open source — o espaço onde experimento tecnologias e storytelling.
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-4 rounded-3xl border border-foreground/10 bg-background/80 p-6 backdrop-blur md:grid-cols-3">
+            <div>
+              <p className="text-[0.58rem] uppercase tracking-[0.32em] text-foreground/40">Vitórias Digitais</p>
+              <p className="mt-2 font-display text-3xl uppercase tracking-[0.14em] text-foreground">+32</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.3em] text-foreground/45">entregas lançadas</p>
+            </div>
+            <div>
+              <p className="text-[0.58rem] uppercase tracking-[0.32em] text-foreground/40">Velocidade Média</p>
+              <p className="mt-2 font-display text-3xl uppercase tracking-[0.14em] text-foreground">98</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.3em] text-foreground/45">lighthouse médio</p>
+            </div>
+            <div>
+              <p className="text-[0.58rem] uppercase tracking-[0.32em] text-foreground/40">Base Técnica</p>
+              <p className="mt-2 font-display text-3xl uppercase tracking-[0.14em] text-foreground">Full Stack</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.3em] text-foreground/45">Next.js · GSAP · Edge</p>
+            </div>
+          </div>
         </div>
-        <div
-          ref={cubeRef}
-          className="absolute -bottom-10 left-1/2 h-20 w-20 -translate-x-1/2 sm:-bottom-12 sm:h-24 sm:w-24 md:-bottom-16 md:h-28 md:w-28 lg:-bottom-20 lg:h-32 lg:w-32"
-          data-hero-animate
-        >
-          <Image src="/img/hero-cube.png" alt="Elemento futurista" fill priority className="object-contain" />
+        <div className="rounded-[2.5rem] border border-accent/20 bg-accent/10 p-6 text-background backdrop-blur">
+          <p className="text-[0.62rem] uppercase tracking-[0.32em]">Mensagem do Leonardo</p>
+          <p className="mt-5 font-display text-[1.6rem] uppercase tracking-[0.12em]">
+            “Não importa onde você começa, e sim como evolui cada entrega. Eu crio experiências que ressoam, elevam marcas e criam
+            valor real.”
+          </p>
+          <p className="mt-6 text-sm uppercase tracking-[0.3em] text-accent/90">2025 — Florianópolis, Brasil</p>
         </div>
       </div>
 
-      <div className="flex flex-col items-start gap-3 pb-6" data-hero-animate>
+      <div className="flex flex-col items-start gap-3 pb-4 md:flex-row md:items-center md:justify-between" data-hero-animate>
         <button
           type="button"
-          onClick={handleDriveClick}
+          onClick={handleLockToggle}
           data-cursor="interactive"
-          className="inline-flex items-center gap-3 rounded-full border border-foreground/20 px-5 py-2.5 text-[0.65rem] uppercase tracking-[0.28em] text-foreground/80 transition hover:border-accent hover:text-accent sm:gap-4 sm:px-6 sm:py-3 sm:text-xs sm:tracking-[0.32em]"
+          className="inline-flex items-center gap-3 rounded-full border border-foreground/25 px-5 py-2.5 text-[0.65rem] uppercase tracking-[0.32em] text-foreground/85 transition hover:border-accent hover:text-accent sm:gap-4 sm:px-6 sm:py-3 sm:text-xs"
         >
-          <span>{driveTriggeredRef.current || isDriveActive ? "Scroll to explore" : "Tap to drive"}</span>
-          <span className="block h-px w-10 bg-foreground/40" aria-hidden />
+          <span>{isLocked ? "Experiência travada — role para acompanhar" : "Toque para travar a experiência"}</span>
+          <span className="block h-px w-10 bg-foreground/35" aria-hidden />
         </button>
-        <span className="text-[0.55rem] uppercase tracking-[0.42em] text-foreground/40 sm:text-[0.65rem] sm:tracking-[0.5em]">
-          Scroll para desbloquear a experiência
+        <span className="text-[0.58rem] uppercase tracking-[0.45em] text-foreground/40 sm:text-[0.68rem]">
+          {isLocked ? "Scroll liberado — acompanhe a linha do tempo" : "Scroll para desbloquear cada capítulo"}
         </span>
       </div>
     </section>

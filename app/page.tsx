@@ -7,11 +7,13 @@ import { TimelineSection } from "@/components/TimelineSection";
 import { DualShowcaseSection } from "@/components/DualShowcaseSection";
 import { HighlightsSection } from "@/components/HighlightsSection";
 import { FooterSection } from "@/components/FooterSection";
+import { NextMilestoneSection } from "@/components/NextMilestoneSection";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <NextMilestoneSection />
       <SignatureSection />
       <ManifestoSection />
 

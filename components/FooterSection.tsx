@@ -6,8 +6,10 @@ import { gsap } from "@/lib/gsap";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/sobre", label: "Sobre" },
-  { href: "/projetos", label: "Projetos" },
+  { href: "/on-track", label: "On Track" },
+  { href: "/off-track", label: "Off Track" },
+  { href: "/parcerias", label: "Parcerias" },
+  { href: "/agenda", label: "Agenda" },
   { href: "/contato", label: "Contato" }
 ] as const;
 

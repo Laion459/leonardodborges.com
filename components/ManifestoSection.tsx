@@ -44,7 +44,7 @@ export function ManifestoSection() {
 
       <div className="max-w-4xl space-y-5 sm:space-y-6">
         <p className="text-[0.65rem] uppercase tracking-[0.32em] text-accent sm:text-xs sm:tracking-[0.35em]" data-manifesto-title>
-          McLaren F1 desde 2019 — Minha pista desde 2015
+          Código desde 2015 — Motion e estratégia desde 2019
         </p>
         <h2 className="font-display text-[2.4rem] uppercase tracking-[0.14em] sm:text-4xl sm:tracking-[0.18em] md:text-5xl md:tracking-[0.2em] lg:text-6xl" data-manifesto-title>
           Redefinindo limites digitais,

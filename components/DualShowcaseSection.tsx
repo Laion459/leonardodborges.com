@@ -12,7 +12,7 @@ const ITEMS = [
     description:
       "Projetos comerciais, arquitetura escalável e experiências digitais com foco em conversão e impacto de negócio.",
     cta: "Ver estudos de caso",
-    href: "#timeline",
+    href: "/on-track",
     image: "/img/on-track.png",
     accent: "bg-accent/10 border-accent/40 text-accent"
   },
@@ -23,7 +23,7 @@ const ITEMS = [
     description:
       "Explorações em arte generativa, open source, talks e mentorias. O espaço onde testo ideias e compartilho conhecimento.",
     cta: "Descobrir projetos paralelos",
-    href: "/projetos",
+    href: "/off-track",
     image: "/img/off-track.png",
     accent: "bg-foreground/10 border-foreground/40 text-foreground/80"
   }

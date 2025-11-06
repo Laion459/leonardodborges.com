@@ -6,20 +6,19 @@ import clsx from "clsx";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/sobre", label: "Sobre" },
-  { href: "/projetos", label: "Projetos" },
+  { href: "/on-track", label: "On Track" },
+  { href: "/off-track", label: "Off Track" },
+  { href: "/parcerias", label: "Parcerias" },
+  { href: "/agenda", label: "Agenda" },
   { href: "/contato", label: "Contato" }
-];
+] as const;
 
 export function Navigation() {
   const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 lg:px-10">
-      <Link
-        href="/"
-        className="text-sm uppercase tracking-[0.35em] text-foreground/70 transition hover:text-accent"
-      >
+      <Link href="/" className="text-sm uppercase tracking-[0.35em] text-foreground/70 transition hover:text-accent">
         LDB
       </Link>
       <nav className="flex gap-4 text-xs uppercase tracking-[0.25em] lg:gap-6">

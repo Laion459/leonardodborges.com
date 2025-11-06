@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 
@@ -73,7 +72,7 @@ export default function ContactPage() {
           {CONTACTS.map((contact) => (
             <li key={contact.label} className="flex flex-col gap-2 rounded-3xl border border-foreground/10 p-6" data-contact>
               <span className="text-xs uppercase tracking-[0.35em] text-accent">{contact.label}</span>
-              <Link
+              <a
                 href={contact.href}
                 target={contact.href.startsWith("http") ? "_blank" : undefined}
                 rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -81,7 +80,7 @@ export default function ContactPage() {
                 data-cursor="interactive"
               >
                 {contact.value}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

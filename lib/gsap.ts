@@ -5,9 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 if (typeof window !== "undefined") {
-  if (!gsap.core.globals()["ScrollTrigger"]) {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-  }
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 }
 
 export { gsap, ScrollTrigger };

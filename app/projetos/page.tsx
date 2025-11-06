@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 
@@ -106,14 +105,14 @@ export default function ProjectsPage() {
             </div>
             <div className="flex flex-wrap gap-6 text-sm uppercase tracking-[0.35em]">
               {projeto.demo && (
-                <Link href={projeto.demo} target="_blank" rel="noopener noreferrer" data-cursor="interactive" className="text-accent">
+                <a href={projeto.demo} target="_blank" rel="noopener noreferrer" data-cursor="interactive" className="text-accent">
                   Ver demo
-                </Link>
+                </a>
               )}
               {projeto.github && (
-                <Link href={projeto.github} target="_blank" rel="noopener noreferrer" data-cursor="interactive" className="text-accent">
+                <a href={projeto.github} target="_blank" rel="noopener noreferrer" data-cursor="interactive" className="text-accent">
                   GitHub
-                </Link>
+                </a>
               )}
             </div>
           </article>
