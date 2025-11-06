@@ -1,0 +1,115 @@
+@import "locomotive-scroll/dist/locomotive-scroll.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+  cursor: none;
+}
+
+body.touch-device {
+  cursor: auto;
+}
+
+a {
+  @apply text-foreground transition-colors duration-300 ease-expo-out;
+}
+
+a:hover,
+a:focus-visible {
+  color: theme("colors.accent");
+}
+
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: #00ffff;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+body.touch-device .custom-cursor {
+  display: none;
+}
+
+.custom-cursor--active {
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.horizontal-scroll-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.horizontal-scroll-wrapper .horizontal-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.horizontal-scroll-wrapper .horizontal-section {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 6rem clamp(2rem, 6vw, 8rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vertical-scroll .horizontal-scroll-wrapper {
+  height: auto;
+}
+
+.vertical-scroll .horizontal-content {
+  display: block;
+}
+
+.vertical-scroll .horizontal-section {
+  width: 100%;
+  min-height: auto;
+  padding-block: clamp(4rem, 12vw, 8rem);
+}
+
+.background-logo {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  opacity: 0.07;
+  z-index: 0;
+}
+
+.background-logo svg {
+  width: min(80vw, 1200px);
+}
+
