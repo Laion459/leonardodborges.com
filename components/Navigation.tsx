@@ -5,20 +5,13 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/on-track", label: "On Track" },
-  { href: "/off-track", label: "Off Track" },
-  { href: "/parcerias", label: "Parcerias" },
-  { href: "/agenda", label: "Agenda" },
-  { href: "/contato", label: "Contato" }
-] as const;
+import { NAVIGATION_LINKS } from "@/lib/data/navigation";
 
 export function Navigation() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const menuItems = useMemo(() => NAV_LINKS, []);
+  const [projectStoryOpen, setProjectStoryOpen] = useState<boolean>(false);
+  const menuItems = useMemo(() => NAVIGATION_LINKS, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -26,10 +19,36 @@ export function Navigation() {
 
   useEffect(() => {
     document.body.classList.toggle("no-scroll", menuOpen);
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      window.addEventListener("keydown", handleEscape);
+    }
+
     return () => {
+      window.removeEventListener("keydown", handleEscape);
       document.body.classList.remove("no-scroll");
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const handleStoryToggle = (event: Event) => {
+      const detail = (event as CustomEvent<{ active: boolean }>).detail;
+      const nextState = detail?.active ?? false;
+      setProjectStoryOpen(nextState);
+
+      if (nextState) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("ldb:project-story-toggle", handleStoryToggle);
+    return () => window.removeEventListener("ldb:project-story-toggle", handleStoryToggle);
+  }, []);
 
   const handleToggleMenu = () => {
     setMenuOpen((previous) => !previous);
@@ -39,7 +58,12 @@ export function Navigation() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 lg:px-10">
+      <header
+        className={clsx(
+          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 lg:px-10",
+          projectStoryOpen && "pointer-events-none opacity-30 transition-opacity duration-300 ease-expo-out"
+        )}
+      >
         <Link href="/" className="relative h-8 w-24 transition-opacity duration-300 ease-expo-out hover:opacity-80 sm:h-9 sm:w-28 md:h-10 md:w-32">
           <Image src="/img/logo-ciano.png" alt="Leonardo Dario Borges" fill priority className="object-contain" />
         </Link>

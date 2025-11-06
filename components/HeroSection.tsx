@@ -32,8 +32,24 @@ export function HeroSection() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const synchronizeLock = (event: Event) => {
+      const detail = (event as CustomEvent<{ active: boolean }>).detail;
+      setIsLocked(detail?.active ?? false);
+    };
+
+    window.addEventListener("ldb:project-story-toggle", synchronizeLock);
+    return () => window.removeEventListener("ldb:project-story-toggle", synchronizeLock);
+  }, []);
+
   const handleLockToggle = () => {
-    setIsLocked((previous) => !previous);
+    const nextState = !isLocked;
+    setIsLocked(nextState);
+    window.dispatchEvent(
+      new CustomEvent<{ active: boolean }>("ldb:project-story-toggle", {
+        detail: { active: nextState }
+      })
+    );
   };
 
   return (

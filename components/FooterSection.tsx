@@ -3,15 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
-
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/on-track", label: "On Track" },
-  { href: "/off-track", label: "Off Track" },
-  { href: "/parcerias", label: "Parcerias" },
-  { href: "/agenda", label: "Agenda" },
-  { href: "/contato", label: "Contato" }
-] as const;
+import { NAVIGATION_LINKS } from "@/lib/data/navigation";
 
 const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/borgesleonardod/" },
@@ -96,7 +88,7 @@ export function FooterSection() {
         <div className="space-y-4" data-footer-column>
           <h3 className="text-xs uppercase tracking-[0.35em] text-foreground/50">Navegação</h3>
           <nav className="flex flex-col gap-3 text-sm uppercase tracking-[0.28em] sm:text-[0.88rem]">
-            {NAV_LINKS.map((link) => (
+            {NAVIGATION_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

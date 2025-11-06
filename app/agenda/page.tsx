@@ -4,8 +4,6 @@ import { useEffect, useMemo, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { AGENDA } from "@/lib/data/agenda";
 
-const FILTERS = ["Todos", "Projeto", "Talk", "Mentoria", "Lançamento"] as const;
-
 export default function AgendaPage() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const events = useMemo(() => AGENDA, []);
@@ -49,15 +47,6 @@ export default function AgendaPage() {
           real — status e convites ficam sinalizados abaixo.
         </p>
       </header>
-
-      <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.32em] text-foreground/45" data-agenda-animate>
-        {FILTERS.map((filter) => (
-          <span key={filter} className="rounded-full border border-foreground/20 px-4 py-1">
-            {filter}
-          </span>
-        ))}
-        <span className="rounded-full border border-accent/40 bg-accent/10 px-4 py-1 text-accent">Atualização mensal</span>
-      </div>
 
       <section className="grid gap-6" data-agenda-animate>
         {events.map((event) => {
