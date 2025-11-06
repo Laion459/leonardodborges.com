@@ -24,6 +24,18 @@ body.touch-device {
   cursor: auto;
 }
 
+a,
+button,
+[data-cursor="interactive"] {
+  cursor: none;
+}
+
+body.touch-device a,
+body.touch-device button,
+body.touch-device [data-cursor="interactive"] {
+  cursor: auto;
+}
+
 a {
   @apply text-foreground transition-colors duration-300 ease-expo-out;
 }
@@ -43,7 +55,6 @@ a:focus-visible {
   height: 12px;
   border-radius: 9999px;
   background-color: #00ffff;
-  transform: translate3d(-50%, -50%, 0);
   transition: width 0.2s ease, height 0.2s ease, opacity 0.3s ease;
   mix-blend-mode: difference;
 }

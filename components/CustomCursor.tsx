@@ -11,7 +11,9 @@ export function CustomCursor() {
 
     const move = (event: MouseEvent) => {
       const { clientX, clientY } = event;
-      cursor.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+      const halfWidth = cursor.offsetWidth / 2;
+      const halfHeight = cursor.offsetHeight / 2;
+      cursor.style.transform = `translate3d(${clientX - halfWidth}px, ${clientY - halfHeight}px, 0)`;
     };
 
     const setActive = () => cursor.classList.add("custom-cursor--active");
