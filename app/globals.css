@@ -55,6 +55,7 @@ a:focus-visible {
   height: 12px;
   border-radius: 9999px;
   background-color: #00ffff;
+  transform: translate(-50%, -50%);
   transition: width 0.2s ease, height 0.2s ease, opacity 0.3s ease;
   mix-blend-mode: difference;
 }
