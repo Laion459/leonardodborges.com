@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useLayoutEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useIsMobile } from "@/lib/useIsMobile";
 
@@ -11,89 +11,91 @@ type HorizontalScrollerProps = {
 
 export function HorizontalScroller({ children, id = "horizontal-scroll-container" }: HorizontalScrollerProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const triggerRef = useRef<ScrollTrigger | null>(null);
   const isMobile = useIsMobile();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    const content = contentRef.current;
+    if (!container || !content) return;
 
-    let loco: any;
-    let isCancelled = false;
+    const killTrigger = () => {
+      triggerRef.current?.kill();
+      triggerRef.current = null;
+    };
+
+    const resetContent = () => {
+      gsap.set(content, { clearProps: "all" });
+    };
 
     if (isMobile) {
       container.classList.add("vertical-scroll");
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
+      killTrigger();
+      resetContent();
+      return () => undefined;
     }
 
     container.classList.remove("vertical-scroll");
 
-    const init = async () => {
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      if (isCancelled) return;
+    const ctx = gsap.context(() => {
+      const setupHorizontalScroll = () => {
+        killTrigger();
+        const totalWidth = content.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        const scrollDistance = totalWidth - viewportWidth;
 
-      loco = new LocomotiveScroll({
-        el: container,
-        smooth: true,
-        direction: "horizontal",
-        smartphone: { smooth: false },
-        tablet: { smooth: false }
-      });
-
-      const handleRefresh = () => loco?.update();
-
-      ScrollTrigger.scrollerProxy(container, {
-        scrollLeft(value) {
-          if (loco) {
-            if (value !== undefined) {
-              loco.scrollTo(value, { duration: 0, disableLerp: true });
-            }
-            return loco.scroll.instance.scroll.x;
-          }
-          return 0;
-        },
-        scrollTop() {
-          return 0;
-        },
-        getBoundingClientRect() {
-          return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight
-          };
+        if (scrollDistance <= 0) {
+          resetContent();
+          return;
         }
-      });
 
-      ScrollTrigger.addEventListener("refresh", handleRefresh);
+        gsap.set(content, { display: "flex", x: 0 });
+
+        triggerRef.current = ScrollTrigger.create({
+          trigger: container,
+          start: "top top",
+          end: () => `+=${scrollDistance + viewportWidth * 0.25}`,
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            gsap.set(content, { x: -scrollDistance * progress });
+          }
+        });
+      };
+
+      setupHorizontalScroll();
+      ScrollTrigger.addEventListener("refresh", setupHorizontalScroll);
       ScrollTrigger.refresh();
 
       return () => {
-        ScrollTrigger.removeEventListener("refresh", handleRefresh);
+        ScrollTrigger.removeEventListener("refresh", setupHorizontalScroll);
+        killTrigger();
       };
+    }, container);
+
+    const releaseListener = () => {
+      killTrigger();
+      resetContent();
+      ScrollTrigger.refresh();
     };
 
-    let cleanupFn: (() => void) | undefined;
-
-    init().then((cleanup) => {
-      cleanupFn = cleanup ?? cleanupFn;
-    });
+    window.addEventListener("release-horizontal-scroll", releaseListener);
 
     return () => {
-      isCancelled = true;
-      cleanupFn?.();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      if (loco) {
-        loco.destroy();
-      }
+      window.removeEventListener("release-horizontal-scroll", releaseListener);
+      ctx.revert();
     };
   }, [isMobile]);
 
   return (
-    <div ref={containerRef} id={id} data-scroll-container className="horizontal-scroll-wrapper">
-      <div className="horizontal-content">{children}</div>
+    <div ref={containerRef} id={id} className="horizontal-scroll-wrapper">
+      <div ref={contentRef} className="horizontal-content flex flex-col gap-10 lg:flex-row">
+        {children}
+      </div>
     </div>
   );
 }
