@@ -70,6 +70,24 @@ body.touch-device .custom-cursor {
   opacity: 0.8;
 }
 
+.menu-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 255, 0.6) transparent;
+}
+
+.menu-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.menu-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.6);
+  border-radius: 9999px;
+}
+
+.menu-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .lenis-smooth {
   scroll-behavior: auto;
 }
