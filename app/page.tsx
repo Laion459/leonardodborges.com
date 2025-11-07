@@ -8,7 +8,7 @@ import { DualShowcaseSection } from "@/components/DualShowcaseSection";
 import { HighlightsSection } from "@/components/HighlightsSection";
 import { FooterSection } from "@/components/FooterSection";
 import { NextMilestoneSection } from "@/components/NextMilestoneSection";
-import { ProjectStoryOverlay } from "@/components/ProjectStoryOverlay";
+import { StorylineSection } from "@/components/StorylineSection";
 
 export default function HomePage() {
   return (
@@ -17,12 +17,11 @@ export default function HomePage() {
       <NextMilestoneSection />
       <SignatureSection />
       <ManifestoSection />
-
+      <StorylineSection />
       <TimelineSection />
       <DualShowcaseSection />
       <HighlightsSection />
       <FooterSection />
-      <ProjectStoryOverlay />
     </>
   );
 }

@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { PlexusBackground } from "@/components/PlexusBackground";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const subtitleRef = useRef<HTMLParagraphElement | null>(null);
-  const [isLocked, setIsLocked] = useState<boolean>(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -31,26 +30,6 @@ export function HeroSection() {
 
     return () => ctx.revert();
   }, []);
-
-  useEffect(() => {
-    const synchronizeLock = (event: Event) => {
-      const detail = (event as CustomEvent<{ active: boolean }>).detail;
-      setIsLocked(detail?.active ?? false);
-    };
-
-    window.addEventListener("ldb:project-story-toggle", synchronizeLock);
-    return () => window.removeEventListener("ldb:project-story-toggle", synchronizeLock);
-  }, []);
-
-  const handleLockToggle = () => {
-    const nextState = !isLocked;
-    setIsLocked(nextState);
-    window.dispatchEvent(
-      new CustomEvent<{ active: boolean }>("ldb:project-story-toggle", {
-        detail: { active: nextState }
-      })
-    );
-  };
 
   return (
     <section
@@ -128,21 +107,6 @@ export function HeroSection() {
           </p>
           <p className="mt-6 text-sm uppercase tracking-[0.3em] text-accent/90">2025 — Florianópolis, Brasil</p>
         </div>
-      </div>
-
-      <div className="flex flex-col items-start gap-3 pb-4 md:flex-row md:items-center md:justify-between" data-hero-animate>
-        <button
-          type="button"
-          onClick={handleLockToggle}
-          data-cursor="interactive"
-          className="inline-flex items-center gap-3 rounded-full border border-foreground/25 px-5 py-2.5 text-[0.65rem] uppercase tracking-[0.32em] text-foreground/85 transition hover:border-accent hover:text-accent sm:gap-4 sm:px-6 sm:py-3 sm:text-xs"
-        >
-          <span>{isLocked ? "Experiência travada — role para acompanhar" : "Toque para travar a experiência"}</span>
-          <span className="block h-px w-10 bg-foreground/35" aria-hidden />
-        </button>
-        <span className="text-[0.58rem] uppercase tracking-[0.45em] text-foreground/40 sm:text-[0.68rem]">
-          {isLocked ? "Scroll liberado — acompanhe a linha do tempo" : "Scroll para desbloquear cada capítulo"}
-        </span>
       </div>
     </section>
   );

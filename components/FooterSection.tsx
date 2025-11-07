@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
+import type { Route } from "next";
 import { NAVIGATION_LINKS } from "@/lib/data/navigation";
 
 const SOCIAL_LINKS = [
@@ -91,7 +92,7 @@ export function FooterSection() {
             {NAVIGATION_LINKS.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={link.href as Route}
                 className="text-foreground/70 transition hover:text-accent"
                 data-cursor="interactive"
               >
