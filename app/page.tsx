@@ -1,7 +1,6 @@
 "use client";
 
 import { HeroSection } from "@/components/HeroSection";
-import { SignatureSection } from "@/components/SignatureSection";
 import { ManifestoSection } from "@/components/ManifestoSection";
 import { TimelineSection } from "@/components/TimelineSection";
 import { DualShowcaseSection } from "@/components/DualShowcaseSection";
@@ -15,7 +14,6 @@ export default function HomePage() {
     <>
       <HeroSection />
       <NextMilestoneSection />
-      <SignatureSection />
       <ManifestoSection />
       <StorylineSection />
       <TimelineSection />

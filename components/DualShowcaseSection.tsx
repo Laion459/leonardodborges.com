@@ -63,13 +63,13 @@ export function DualShowcaseSection() {
     <section
       id="dual-showcase"
       ref={sectionRef}
-      className="relative flex flex-col gap-10 overflow-hidden px-5 py-16 text-foreground sm:px-6 md:gap-12 md:px-10 lg:flex-row lg:px-16 xl:px-20"
+      className="relative flex flex-col gap-8 overflow-hidden px-4 py-12 text-foreground sm:gap-10 sm:px-5 sm:py-16 md:gap-12 md:px-10 lg:flex-row lg:px-16 xl:px-20"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.08),_transparent_60%)]" />
 
-      <header className="flex flex-col gap-3 lg:w-[32%]" data-showcase-card>
+      <header className="flex flex-col gap-2.5 sm:gap-3 lg:w-[32%]" data-showcase-card>
         <p className="text-[0.65rem] uppercase tracking-[0.32em] text-accent sm:text-xs sm:tracking-[0.35em]">Panorama</p>
-        <h2 className="font-display text-[2.2rem] uppercase tracking-[0.14em] sm:text-4xl sm:tracking-[0.18em] md:text-5xl">
+        <h2 className="font-display text-2xl uppercase tracking-[0.12em] sm:text-[2.2rem] sm:tracking-[0.14em] md:text-4xl md:tracking-[0.18em] lg:text-5xl">
           On Track &amp; Off Track
         </h2>
         <p className="text-sm text-foreground/70 sm:text-base">
@@ -78,30 +78,30 @@ export function DualShowcaseSection() {
         </p>
       </header>
 
-      <div className="grid flex-1 gap-6 sm:grid-cols-2">
+      <div className="grid flex-1 gap-4 sm:gap-6 sm:grid-cols-2">
         {ITEMS.map((item) => (
           <article
             key={item.id}
             data-showcase-card
-            className="group relative flex flex-col gap-6 overflow-hidden rounded-[2.5rem] border border-foreground/10 bg-background/90 p-6 backdrop-blur sm:p-8"
+            className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-foreground/10 bg-background/90 p-5 backdrop-blur sm:gap-6 sm:rounded-[2.5rem] sm:p-6 md:p-8"
           >
             <div className="flex items-center justify-between">
-              <span className="text-xs uppercase tracking-[0.35em] text-foreground/50">{item.label}</span>
-              <span className={`rounded-full px-3 py-1 text-[0.65rem] uppercase tracking-[0.3em] ${item.accent}`}>
+              <span className="text-[0.65rem] uppercase tracking-[0.32em] text-foreground/50 sm:text-xs sm:tracking-[0.35em]">{item.label}</span>
+              <span className={`rounded-full px-2.5 py-1 text-[0.6rem] uppercase tracking-[0.28em] sm:px-3 sm:text-[0.65rem] sm:tracking-[0.3em] ${item.accent}`}>
                 Desde 2019
               </span>
             </div>
 
-            <div className="space-y-3">
-              <h3 className="font-display text-2xl uppercase tracking-[0.18em] text-foreground sm:text-[2rem]">
+            <div className="space-y-2 sm:space-y-3">
+              <h3 className="font-display text-xl uppercase tracking-[0.16em] text-foreground sm:text-2xl sm:tracking-[0.18em] md:text-[2rem]">
                 {item.title}
               </h3>
-              <p className="text-sm text-foreground/70 sm:text-base">{item.description}</p>
+              <p className="text-xs text-foreground/70 sm:text-sm md:text-base">{item.description}</p>
             </div>
 
-            <div className="relative mt-auto overflow-hidden rounded-3xl border border-foreground/10">
+            <div className="relative mt-auto overflow-hidden rounded-2xl border border-foreground/10 sm:rounded-3xl">
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-70 transition-opacity duration-500 ease-expo-out group-hover:opacity-40" />
-              <div className="relative h-48 w-full overflow-hidden sm:h-56">
+              <div className="relative h-40 w-full overflow-hidden sm:h-48 md:h-56">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -113,11 +113,11 @@ export function DualShowcaseSection() {
 
             <a
               href={item.href}
-              className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.32em] text-accent transition hover:text-accent/80"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-accent transition hover:text-accent/80 sm:gap-3 sm:tracking-[0.32em]"
               data-cursor="interactive"
             >
               {item.cta}
-              <span className="block h-px w-8 bg-accent" aria-hidden />
+              <span className="block h-px w-6 bg-accent sm:w-8" aria-hidden />
             </a>
           </article>
         ))}

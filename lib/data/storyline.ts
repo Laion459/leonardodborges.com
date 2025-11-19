@@ -15,7 +15,6 @@ export type StorylineSlide = {
   eyebrow: string;
   headline: string[];
   description: string;
-  signature?: string;
   textPlacement: {
     gridColumn: string;
     gridRow: string;
@@ -47,7 +46,6 @@ export const STORYLINE: StorylineEntry[] = [
     ],
     description:
       "Desde 2019, transformo estratégia em ações rápidas. Como Desenvolvedor Full Stack na Eleven Soft, entrego produtos digitais completos com foco em métricas, experiência do usuário e impacto direto no negócio. Product Manager informal, liderando projetos críticos.",
-    signature: "/img/ldb-signature.png",
     textPlacement: {
       gridColumn: "1 / span 3",
       gridRow: "2 / span 3"
@@ -122,7 +120,6 @@ export const STORYLINE: StorylineEntry[] = [
     headline: ["Produtos digitais completos", "com impacto e estratégia."],
     description:
       "Fundação da LDB CLICK, focada em soluções digitais e consultoria em tecnologia. Desenvolvimento de produtos digitais de alto impacto e estratégias de inovação. Projetos que combinam pesquisa, narrativa e engenharia.",
-    signature: "/img/ldb-signature.png",
     textPlacement: {
       gridColumn: "8 / span 3",
       gridRow: "2 / span 3"

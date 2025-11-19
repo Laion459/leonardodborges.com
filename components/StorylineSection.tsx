@@ -135,20 +135,20 @@ export function StorylineSection() {
                 <article
                   key={entry.id}
                   data-story-slide
-                  className="storyline-slide group relative flex h-max w-full max-w-[720px] flex-shrink-0 flex-col justify-center rounded-[2.2rem] border border-foreground/10 bg-background/85 px-5 py-8 backdrop-blur sm:max-w-[820px] sm:px-7 sm:py-10 md:h-[82%] md:w-[68vw] md:max-w-[960px] md:rounded-[2.8rem] md:px-10 lg:h-[88%]"
+                  className="storyline-slide group relative flex h-max w-full max-w-[720px] flex-shrink-0 flex-col justify-center rounded-2xl border border-foreground/10 bg-background/85 px-4 py-6 backdrop-blur sm:max-w-[820px] sm:rounded-[2.2rem] sm:px-5 sm:py-8 md:px-7 md:py-10 md:h-[82%] md:w-[68vw] md:max-w-[960px] md:rounded-[2.8rem] md:px-10 lg:h-[88%]"
                 >
                   <div
                     className="relative flex flex-col gap-4 sm:gap-5 lg:grid lg:gap-6 lg:[grid-template-columns:repeat(12,minmax(0,1fr))] lg:[grid-template-rows:repeat(8,minmax(48px,1fr))]"
                   >
                     <div
-                      className="space-y-4 text-left"
+                      className="space-y-3 text-left sm:space-y-4"
                       style={{
                         gridColumn: entry.textPlacement.gridColumn,
                         gridRow: entry.textPlacement.gridRow
                       }}
                     >
-                      <p className="text-[0.6rem] uppercase tracking-[0.32em] text-foreground/45">{entry.eyebrow}</p>
-                      <h3 className="font-display text-[1.6rem] uppercase tracking-[0.12em] text-foreground sm:text-[1.85rem] lg:text-[2.3rem]">
+                      <p className="text-[0.55rem] uppercase tracking-[0.3em] text-foreground/45 sm:text-[0.6rem] sm:tracking-[0.32em]">{entry.eyebrow}</p>
+                      <h3 className="font-display text-xl uppercase leading-tight tracking-[0.1em] text-foreground sm:text-[1.6rem] sm:tracking-[0.12em] md:text-[1.85rem] lg:text-[2.3rem]">
                         {entry.headline.map((line) => (
                           <span key={line} className="block">
                             {line}
@@ -158,20 +158,16 @@ export function StorylineSection() {
                       <p className="w-full max-w-[min(56ch,100%)] text-xs leading-relaxed text-foreground/70 sm:text-sm lg:text-base">
                         {entry.description}
                       </p>
-                      {entry.signature && (
-                        <div className="w-24 select-none opacity-75 sm:w-28 lg:w-32">
-                          <Image src={entry.signature} alt="Assinatura" width={320} height={120} className="h-auto w-full object-contain" />
-                        </div>
-                      )}
                     </div>
 
                     <figure
-                      className="relative overflow-hidden rounded-[1.6rem] border border-foreground/15 bg-background/70 sm:rounded-[2rem]"
+                      className="relative overflow-hidden rounded-xl border border-foreground/15 bg-background/70 sm:rounded-[1.6rem] md:rounded-[2rem]"
                       style={{
                         gridColumn: entry.mainImage.gridColumn,
                         gridRow: entry.mainImage.gridRow,
                         aspectRatio: entry.mainImage.aspectRatio,
-                        maxWidth: "min(28vw, 340px)",
+                        maxWidth: "100%",
+                        width: "100%",
                         justifySelf: "center"
                       }}
                     >
@@ -181,19 +177,20 @@ export function StorylineSection() {
                     {entry.gallery.map((item) => (
                       <figure
                         key={item.id}
-                        className="group flex flex-col gap-2"
+                        className="group flex flex-col gap-1.5 sm:gap-2"
                         style={{
                           gridColumn: item.gridColumn,
                           gridRow: item.gridRow,
-                          maxWidth: "min(22vw, 220px)"
+                          maxWidth: "100%",
+                          width: "100%"
                         }}
                       >
-                        <figcaption className="text-[0.55rem] uppercase tracking-[0.3em] text-foreground/40">
+                        <figcaption className="text-[0.5rem] uppercase tracking-[0.28em] text-foreground/40 sm:text-[0.55rem] sm:tracking-[0.3em]">
                           {item.label}
                         </figcaption>
                         <div
                           className={clsx(
-                            "relative overflow-hidden rounded-[1.2rem] border border-foreground/12 sm:rounded-[1.6rem]",
+                            "relative overflow-hidden rounded-lg border border-foreground/12 sm:rounded-[1.2rem] md:rounded-[1.6rem]",
                             item.tone === "muted" ? "opacity-85" : ""
                           )}
                           style={{ aspectRatio: item.aspectRatio }}
@@ -206,7 +203,7 @@ export function StorylineSection() {
                           />
                         </div>
                         {item.description && (
-                          <p className="text-[0.55rem] uppercase tracking-[0.26em] text-foreground/45">
+                          <p className="text-[0.5rem] uppercase tracking-[0.24em] text-foreground/45 sm:text-[0.55rem] sm:tracking-[0.26em]">
                             {item.description}
                           </p>
                         )}

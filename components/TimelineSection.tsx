@@ -56,12 +56,12 @@ export function TimelineSection() {
     <section
       id="timeline"
       ref={sectionRef}
-      className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-20 text-foreground sm:px-8 lg:px-12"
+      className="relative mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16 text-foreground sm:gap-12 sm:px-6 sm:py-20 lg:px-12"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(0,255,255,0.12),_transparent_65%)]" />
-      <header className="space-y-4">
+      <header className="space-y-3 sm:space-y-4">
         <p className="text-[0.65rem] uppercase tracking-[0.32em] text-accent sm:text-xs sm:tracking-[0.35em]">Linha do Tempo</p>
-        <h2 className="font-display text-[2.2rem] uppercase tracking-[0.14em] sm:text-4xl sm:tracking-[0.18em] md:text-5xl">
+        <h2 className="font-display text-2xl uppercase tracking-[0.12em] sm:text-[2.2rem] sm:tracking-[0.14em] md:text-4xl md:tracking-[0.18em] lg:text-5xl">
           Na pista e fora dela,
           <span className="block text-accent">cada projeto acelera minha trajetória.</span>
         </h2>
@@ -71,7 +71,7 @@ export function TimelineSection() {
         </p>
       </header>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-animate>
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3" data-animate>
         {events.map((event) => {
           const sizeClass = SIZE_CLASS[event.size];
           const tagColor = event.category === "On Track" ? "bg-accent/20 text-accent" : "bg-foreground/10 text-foreground/80";
@@ -81,33 +81,33 @@ export function TimelineSection() {
               key={event.id}
               data-timeline-card
               className={clsx(
-                "flex flex-col gap-4 rounded-3xl border border-foreground/10 bg-background/85 p-6 backdrop-blur transition-transform duration-500 ease-expo-out hover:-translate-y-4 hover:border-accent/60",
+                "flex flex-col gap-3 rounded-2xl border border-foreground/10 bg-background/85 p-5 backdrop-blur transition-transform duration-500 ease-expo-out hover:-translate-y-4 hover:border-accent/60 sm:gap-4 sm:rounded-3xl sm:p-6",
                 sizeClass
               )}
             >
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-foreground/50">
+              <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.32em] text-foreground/50 sm:text-xs sm:tracking-[0.35em]">
                 <span>{event.year}</span>
-                <span className={clsx("rounded-full px-3 py-1 text-[0.6rem]", tagColor)}>{event.category}</span>
+                <span className={clsx("rounded-full px-2.5 py-1 text-[0.55rem] sm:px-3 sm:text-[0.6rem]", tagColor)}>{event.category}</span>
               </div>
 
-              <div className="space-y-2">
-                <h3 className="font-display text-xl uppercase tracking-[0.16em] text-foreground sm:text-2xl">{event.title}</h3>
-                <p className="text-[0.65rem] uppercase tracking-[0.26em] text-foreground/40 sm:text-sm sm:tracking-[0.3em]">
+              <div className="space-y-1.5 sm:space-y-2">
+                <h3 className="font-display text-lg uppercase tracking-[0.14em] text-foreground sm:text-xl sm:tracking-[0.16em] md:text-2xl">{event.title}</h3>
+                <p className="text-[0.6rem] uppercase tracking-[0.24em] text-foreground/40 sm:text-[0.65rem] sm:tracking-[0.26em] md:text-sm md:tracking-[0.3em]">
                   {event.subtitle}
                 </p>
               </div>
 
-              <p className="text-sm leading-relaxed text-foreground/70 sm:text-base">{event.description}</p>
+              <p className="text-xs leading-relaxed text-foreground/70 sm:text-sm md:text-base">{event.description}</p>
 
-              <div className="mt-auto flex items-center justify-between text-xs uppercase tracking-[0.35em] text-foreground/40">
+              <div className="mt-auto flex flex-col gap-1.5 text-[0.65rem] uppercase tracking-[0.32em] text-foreground/40 sm:flex-row sm:items-center sm:justify-between sm:text-xs sm:tracking-[0.35em]">
                 <span>{event.location}</span>
                 <span className="flex items-center gap-2 text-accent">
-                  <span className="block h-px w-6 bg-accent" />
+                  <span className="block h-px w-5 bg-accent sm:w-6" />
                   Highlights
                 </span>
               </div>
 
-              <div className="mt-6 h-32 overflow-hidden rounded-2xl border border-foreground/10 sm:h-36 md:h-40">
+              <div className="mt-4 h-28 overflow-hidden rounded-xl border border-foreground/10 sm:mt-6 sm:h-32 sm:rounded-2xl md:h-36 lg:h-40">
                 {event.image ? (
                   <Image
                     src={event.image}
