@@ -1,23 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { STORYLINE, StorylineCTA, StorylineEntry, StorylineSlide } from "@/lib/data/storyline";
+import { STORYLINE_ITEMS } from "@/lib/data/storyline";
 import { NAVIGATION_LINKS } from "@/lib/data/navigation";
-
-function isStorylineSlide(entry: StorylineEntry): entry is StorylineSlide {
-  return (entry as StorylineCTA).type !== "cta";
-}
 
 const SECTION_ID = "ldb-storyline";
 
 export function StorylineSection() {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const storylineEntries = useMemo(() => STORYLINE, []);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -25,9 +19,6 @@ export function StorylineSection() {
     if (!wrapper || !track) {
       return;
     }
-
-    const slides = Array.from(track.querySelectorAll<HTMLElement>("[data-story-slide]"));
-    const totalSlides = slides.length;
 
     const mm = gsap.matchMedia();
 
@@ -48,14 +39,11 @@ export function StorylineSection() {
           const distance = updateDistance();
           if (distance <= 0) {
             gsap.set(track, { x: 0 });
-            setActiveIndex(0);
             return;
           }
 
           const progress = self.progress;
           gsap.set(track, { x: -distance * progress });
-          const nextIndex = Math.min(totalSlides - 1, Math.round(progress * (totalSlides - 1)));
-          setActiveIndex(nextIndex);
         }
       });
 
@@ -69,43 +57,12 @@ export function StorylineSection() {
 
     mm.add("(max-width: 1023px)", () => {
       gsap.set(track, { x: 0 });
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-          if (visible?.target) {
-            const index = Number(visible.target.getAttribute("data-story-index"));
-            if (!Number.isNaN(index)) {
-              setActiveIndex(index);
-            }
-          }
-        },
-        {
-          root: null,
-          threshold: [0.35, 0.5, 0.65]
-        }
-      );
-
-      slides.forEach((slide, index) => {
-        slide.setAttribute("data-story-index", String(index));
-        observer.observe(slide);
-      });
-
-      return () => {
-        observer.disconnect();
-        slides.forEach((slide) => slide.removeAttribute("data-story-index"));
-      };
     });
 
     return () => {
       mm.revert();
     };
-  }, [storylineEntries.length]);
-
-  const totalSlides = storylineEntries.length;
+  }, []);
 
   return (
     <section
@@ -118,135 +75,96 @@ export function StorylineSection() {
 
       <div
         ref={wrapperRef}
-        className="relative mx-auto flex min-h-[100vh] w-full max-w-[1440px] items-stretch overflow-hidden pb-12 pt-20 sm:pt-24 lg:h-[105vh] lg:min-h-0"
+        className="relative mx-auto flex min-h-[100vh] w-full max-w-[1440px] items-center overflow-x-auto overflow-y-hidden pb-12 pt-20 sm:pt-24 lg:h-[100vh] lg:min-h-0 lg:overflow-hidden"
+        style={{ width: "100%", maxWidth: "100vw", boxSizing: "border-box" }}
       >
-        <div className="pointer-events-none absolute top-6 left-6 right-6 z-20 flex flex-col gap-2 text-[0.62rem] uppercase tracking-[0.3em] text-foreground/45 sm:flex-row sm:items-center sm:justify-between">
-          <span>Storyline — On Track</span>
-          <span>{String(activeIndex + 1).padStart(2, "0")} / {String(totalSlides).padStart(2, "0")}</span>
+        <div className="pointer-events-none absolute top-4 left-4 right-4 z-20 flex flex-col gap-2 text-[0.62rem] uppercase tracking-[0.3em] text-foreground/45 sm:top-6 sm:left-6 sm:right-6 sm:flex-row sm:items-center sm:justify-between">
+          <span>Storyline — On Track & Off Track</span>
+          <span>{STORYLINE_ITEMS.length} momentos</span>
         </div>
 
         <div
           ref={trackRef}
-          className="relative flex h-full w-full min-w-full flex-col gap-12 px-4 pb-10 pt-20 sm:px-6 md:flex-row md:items-center md:gap-10 md:px-10 md:py-16 lg:px-16"
+          data-storyline-track
+          className="relative flex h-full items-center gap-6 px-4 py-16 sm:gap-8 sm:px-6 md:gap-10 md:px-8 lg:gap-12 lg:px-12"
+          style={{
+            width: "max-content",
+            minWidth: "100%"
+          }}
         >
-          {storylineEntries.map((entry, index) => {
-            if (isStorylineSlide(entry)) {
-              return (
-                <article
-                  key={entry.id}
-                  data-story-slide
-                  className="storyline-slide group relative flex h-max w-full max-w-[720px] flex-shrink-0 flex-col justify-center rounded-2xl border border-foreground/10 bg-background/85 px-4 py-6 backdrop-blur sm:max-w-[820px] sm:rounded-[2.2rem] sm:px-5 sm:py-8 md:px-7 md:py-10 md:h-[82%] md:w-[68vw] md:max-w-[960px] md:rounded-[2.8rem] md:px-10 lg:h-[88%]"
+          {STORYLINE_ITEMS.map((item) => (
+            <div
+              key={item.id}
+              className="group relative flex h-[280px] w-[200px] flex-shrink-0 flex-col items-center justify-start gap-3 rounded-2xl border border-foreground/10 bg-background/85 p-4 backdrop-blur transition-all duration-300 hover:border-accent/40 hover:bg-background/95 sm:h-[320px] sm:w-[240px] sm:gap-4 sm:p-5 md:h-[360px] md:w-[280px] lg:h-[400px] lg:w-[320px]"
+            >
+              <div className="flex w-full items-center justify-between text-[0.55rem] uppercase tracking-[0.28em] text-foreground/50 sm:text-[0.6rem]">
+                <span>{item.year}</span>
+                <span
+                  className={clsx(
+                    "rounded-full px-2 py-0.5 text-[0.5rem] uppercase tracking-[0.24em] sm:px-2.5 sm:text-[0.55rem]",
+                    item.category === "On Track"
+                      ? "bg-accent/20 text-accent"
+                      : "bg-foreground/10 text-foreground/70"
+                  )}
                 >
-                  <div
-                    className="relative flex flex-col gap-4 sm:gap-5 lg:grid lg:gap-6 lg:[grid-template-columns:repeat(12,minmax(0,1fr))] lg:[grid-template-rows:repeat(8,minmax(48px,1fr))]"
-                  >
-                    <div
-                      className="space-y-3 text-left sm:space-y-4"
-                      style={{
-                        gridColumn: entry.textPlacement.gridColumn,
-                        gridRow: entry.textPlacement.gridRow
-                      }}
-                    >
-                      <p className="text-[0.55rem] uppercase tracking-[0.3em] text-foreground/45 sm:text-[0.6rem] sm:tracking-[0.32em]">{entry.eyebrow}</p>
-                      <h3 className="font-display text-xl uppercase leading-tight tracking-[0.1em] text-foreground sm:text-[1.6rem] sm:tracking-[0.12em] md:text-[1.85rem] lg:text-[2.3rem]">
-                        {entry.headline.map((line) => (
-                          <span key={line} className="block">
-                            {line}
-                          </span>
-                        ))}
-                      </h3>
-                      <p className="w-full max-w-[min(56ch,100%)] text-xs leading-relaxed text-foreground/70 sm:text-sm lg:text-base">
-                        {entry.description}
-                      </p>
-                    </div>
+                  {item.category === "On Track" ? "On" : "Off"}
+                </span>
+              </div>
 
-                    <figure
-                      className="relative overflow-hidden rounded-xl border border-foreground/15 bg-background/70 sm:rounded-[1.6rem] md:rounded-[2rem]"
-                      style={{
-                        gridColumn: entry.mainImage.gridColumn,
-                        gridRow: entry.mainImage.gridRow,
-                        aspectRatio: entry.mainImage.aspectRatio,
-                        maxWidth: "100%",
-                        width: "100%",
-                        justifySelf: "center"
-                      }}
-                    >
-                      <Image src={entry.mainImage.image} alt={entry.mainImage.alt} fill className="object-cover" />
-                    </figure>
-
-                    {entry.gallery.map((item) => (
-                      <figure
-                        key={item.id}
-                        className="group flex flex-col gap-1.5 sm:gap-2"
-                        style={{
-                          gridColumn: item.gridColumn,
-                          gridRow: item.gridRow,
-                          maxWidth: "100%",
-                          width: "100%"
-                        }}
-                      >
-                        <figcaption className="text-[0.5rem] uppercase tracking-[0.28em] text-foreground/40 sm:text-[0.55rem] sm:tracking-[0.3em]">
-                          {item.label}
-                        </figcaption>
-                        <div
-                          className={clsx(
-                            "relative overflow-hidden rounded-lg border border-foreground/12 sm:rounded-[1.2rem] md:rounded-[1.6rem]",
-                            item.tone === "muted" ? "opacity-85" : ""
-                          )}
-                          style={{ aspectRatio: item.aspectRatio }}
-                        >
-                          <Image
-                            src={item.image}
-                            alt={item.alt}
-                            fill
-                            className="object-cover transition duration-700 ease-expo-out group-hover:scale-[1.03]"
-                          />
-                        </div>
-                        {item.description && (
-                          <p className="text-[0.5rem] uppercase tracking-[0.24em] text-foreground/45 sm:text-[0.55rem] sm:tracking-[0.26em]">
-                            {item.description}
-                          </p>
-                        )}
-                      </figure>
-                    ))}
+              <div className="relative h-32 w-full overflow-hidden rounded-xl border border-foreground/10 bg-background/60 sm:h-40 md:h-44 lg:h-48">
+                {item.image ? (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center text-[0.55rem] uppercase tracking-[0.24em] text-foreground/30">
+                    Sem imagem
                   </div>
-                </article>
-              );
-            }
+                )}
+              </div>
 
-            return (
-              /* CTA Slide */
-              <article
-                key={entry.id}
-                data-story-slide
-                className="relative flex h-max w-full max-w-[640px] flex-shrink-0 flex-col justify-center rounded-[2.2rem] border border-foreground/12 bg-background/90 px-5 py-9 backdrop-blur sm:max-w-[720px] sm:px-7 sm:py-10 md:h-[82%] md:w-[60vw] md:max-w-[840px] md:rounded-[2.6rem] md:px-10"
-              >
-                <div className="space-y-5">
-                  <p className="text-[0.62rem] uppercase tracking-[0.32em] text-accent">Próximas voltas</p>
-                  <h3 className="font-display text-[2rem] uppercase tracking-[0.14em] text-foreground sm:text-[2.2rem] md:text-[2.5rem]">
-                    Explore outros destinos
-                  </h3>
-                  <p className="max-w-xl text-sm text-foreground/75">
-                    Continue a jornada navegando pelos capítulos completos do portfólio. On Track aprofunda cases em produção, Off Track
-                    apresenta laboratórios criativos e a Agenda mantém o radar atualizado.
-                  </p>
-                </div>
-                <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                  {NAVIGATION_LINKS.filter((link) => link.href !== "/").map((link) => (
-                    <a
-                      key={`storyline-cta-${link.href}`}
-                      href={link.href}
-                      data-cursor="interactive"
-                      className="flex items-center justify-between rounded-3xl border border-foreground/15 bg-background/75 px-5 py-4 text-xs uppercase tracking-[0.3em] text-foreground/75 transition hover:border-accent hover:text-accent"
-                    >
-                      {link.label}
-                      <span className="block h-px w-10 bg-foreground/30" aria-hidden />
-                    </a>
-                  ))}
-                </div>
-              </article>
-            );
-          })}
+              <div className="flex flex-1 flex-col justify-start gap-1.5 text-center sm:gap-2">
+                <h3 className="font-display text-xs uppercase leading-tight tracking-[0.12em] text-foreground sm:text-sm sm:tracking-[0.14em] md:text-base">
+                  {item.title}
+                </h3>
+                <p className="text-[0.6rem] leading-relaxed text-foreground/60 sm:text-[0.65rem] md:text-xs">
+                  {item.shortDescription}
+                </p>
+                <p className="mt-auto text-[0.55rem] uppercase tracking-[0.24em] text-foreground/40 sm:text-[0.6rem]">
+                  {item.location}
+                </p>
+              </div>
+            </div>
+          ))}
+
+          {/* CTA Card */}
+          <div className="relative flex h-[280px] w-[200px] flex-shrink-0 flex-col items-center justify-center gap-4 rounded-2xl border border-foreground/12 bg-background/90 p-5 backdrop-blur sm:h-[320px] sm:w-[240px] sm:gap-5 sm:p-6 md:h-[360px] md:w-[280px] lg:h-[400px] lg:w-[320px]">
+            <div className="space-y-3 text-center sm:space-y-4">
+              <p className="text-[0.62rem] uppercase tracking-[0.32em] text-accent">Próximas voltas</p>
+              <h3 className="font-display text-sm uppercase tracking-[0.12em] text-foreground sm:text-base md:text-lg">
+                Explore outros destinos
+              </h3>
+              <p className="text-[0.6rem] leading-relaxed text-foreground/70 sm:text-[0.65rem] md:text-xs">
+                Continue a jornada navegando pelos capítulos completos do portfólio.
+              </p>
+            </div>
+            <div className="mt-auto grid w-full gap-2">
+              {NAVIGATION_LINKS.filter((link) => link.href !== "/").slice(0, 2).map((link) => (
+                <a
+                  key={`storyline-cta-${link.href}`}
+                  href={link.href}
+                  data-cursor="interactive"
+                  className="flex items-center justify-between rounded-xl border border-foreground/15 bg-background/75 px-3 py-2 text-[0.6rem] uppercase tracking-[0.24em] text-foreground/75 transition hover:border-accent hover:text-accent sm:rounded-2xl sm:px-4 sm:py-2.5 sm:text-[0.65rem]"
+                >
+                  {link.label}
+                  <span className="block h-px w-6 bg-foreground/30 sm:w-8" aria-hidden />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

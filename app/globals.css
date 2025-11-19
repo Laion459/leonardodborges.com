@@ -108,3 +108,69 @@ body.touch-device .custom-cursor {
   width: min(80vw, 1200px);
 }
 
+/* Storyline Section - Horizontal scroll */
+#ldb-storyline {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#ldb-storyline > div {
+  width: 100%;
+  max-width: 100%;
+}
+
+#ldb-storyline [data-storyline-track] {
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 255, 0.3) transparent;
+}
+
+#ldb-storyline [data-storyline-track]::-webkit-scrollbar {
+  height: 4px;
+}
+
+#ldb-storyline [data-storyline-track]::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.3);
+  border-radius: 9999px;
+}
+
+#ldb-storyline [data-storyline-track]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Mobile: Enable horizontal scroll */
+@media (max-width: 1023px) {
+  #ldb-storyline > div {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  #ldb-storyline [data-storyline-track] {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  #ldb-storyline [data-storyline-track] > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+/* Desktop: GSAP controlled scroll */
+@media (min-width: 1024px) {
+  #ldb-storyline > div {
+    overflow: hidden;
+  }
+  
+  #ldb-storyline [data-storyline-track] {
+    overflow: visible;
+  }
+}
+
