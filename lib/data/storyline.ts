@@ -39,14 +39,14 @@ export type StorylineEntry = StorylineSlide | StorylineCTA;
 
 export const STORYLINE: StorylineEntry[] = [
   {
-    id: "miami-2024",
-    eyebrow: "GP de Miami, 2024",
+    id: "eleven-soft-2025",
+    eyebrow: "Eleven Soft, 2025",
     headline: [
       "Não importa onde você começa,",
-      "é como você evolui cada volta."
+      "é como você evolui cada entrega."
     ],
     description:
-      "Desde 2019, transformo estratégia em ações rápidas. Este sprint reúne avanços com storytelling, interfaces vivas e entregas que fogem da pista tradicional.",
+      "Desde 2019, transformo estratégia em ações rápidas. Como Desenvolvedor Full Stack na Eleven Soft, entrego produtos digitais completos com foco em métricas, experiência do usuário e impacto direto no negócio. Product Manager informal, liderando projetos críticos.",
     signature: "/img/ldb-signature.png",
     textPlacement: {
       gridColumn: "1 / span 3",
@@ -54,61 +54,61 @@ export const STORYLINE: StorylineEntry[] = [
     },
     mainImage: {
       image: "/img/hero-leonardo.png",
-      alt: "Leonardo celebrando após entrega",
+      alt: "Leonardo Dario Borges — Desenvolvedor Full Stack",
       gridColumn: "5 / span 4",
       gridRow: "3 / span 4",
       aspectRatio: "3 / 4"
     },
     gallery: [
       {
-        id: "catar-2024",
-        label: "Catar, 2024",
-        description: "Experiência brutalista para redirecionar funil de leads.",
+        id: "keyring-2025",
+        label: "Keyring, 2025",
+        description: "App web completo para gestão de licenças.",
         image: "/img/highlight-brain.png",
-        alt: "Interface destaque com cérebro neon",
+        alt: "Keyring — Sistema de gestão de licenças",
         gridColumn: "2 / span 2",
         gridRow: "1 / span 2",
         aspectRatio: "1 / 1",
         tone: "muted"
       },
       {
-        id: "fia-2024",
-        label: "Cerimônia FIA, 2024",
-        description: "Design system preparado para lives e keynotes.",
+        id: "refatoracao-2025",
+        label: "Refatoração Sites, 2025",
+        description: "Nova arquitetura React + Tailwind + Filament.",
         image: "/img/on-track.png",
-        alt: "Apresentação de projeto",
+        alt: "Refatoração dos sites da empresa",
         gridColumn: "2 / span 2",
         gridRow: "4 / span 2",
         aspectRatio: "3 / 4"
       },
       {
-        id: "monaco-2023",
-        label: "Mônaco, 2023",
-        description: "Motion + GSAP para produtos premium.",
+        id: "esh-2025",
+        label: "ESH Sistema, 2025",
+        description: "Sistema de monitoramento e controle.",
         image: "/img/off-track.png",
-        alt: "Experimentação criativa",
+        alt: "ESH — Sistema proprietário",
         gridColumn: "10 / span 2",
         gridRow: "1 / span 2",
         aspectRatio: "3 / 4",
         tone: "muted"
       },
       {
-        id: "britain-2025",
-        label: "Grã-Bretanha, 2025",
-        description: "Arquitetura Edge e automações LangChain.",
+        id: "asaas-2025",
+        label: "Integração Asaas, 2025",
+        description: "Pagamentos e automações completas.",
         image: "/img/hero-cube.png",
-        alt: "Cubo tecnológico",
+        alt: "Integração com Asaas",
         gridColumn: "9 / span 3",
         gridRow: "4 / span 3",
         aspectRatio: "4 / 3",
         tone: "vivid"
       },
       {
-        id: "battersea-2024",
-        label: "Battersea, 2024",
-        description: "Mentorias para squads criativos.",
+        id: "acate-2025",
+        label: "ACATE Invest, 2025",
+        description: "Pitch Day e networking estratégico.",
         image: "/img/timeline-leonardo.png",
-        alt: "Leonardo em workshop",
+        alt: "ACATE Invest — Pitch Day",
         gridColumn: "6 / span 2",
         gridRow: "1 / span 2",
         aspectRatio: "4 / 5",
@@ -117,11 +117,11 @@ export const STORYLINE: StorylineEntry[] = [
     ]
   },
   {
-    id: "barcelona-2024",
-    eyebrow: "Barcelona, 2024",
-    headline: ["Storytelling técnico", "com impacto e performance."],
+    id: "ldb-click-2025",
+    eyebrow: "LDB CLICK, 2025",
+    headline: ["Produtos digitais completos", "com impacto e estratégia."],
     description:
-      "Projetos autorais e consultorias que alinham pesquisa, narrativa e engenharia. Uma coleção de sprints que mantém a garagem cheia de experimentos.",
+      "Fundação da LDB CLICK, focada em soluções digitais e consultoria em tecnologia. Desenvolvimento de produtos digitais de alto impacto e estratégias de inovação. Projetos que combinam pesquisa, narrativa e engenharia.",
     signature: "/img/ldb-signature.png",
     textPlacement: {
       gridColumn: "8 / span 3",
@@ -129,49 +129,49 @@ export const STORYLINE: StorylineEntry[] = [
     },
     mainImage: {
       image: "/img/sentado programando no escritorio.png",
-      alt: "Leonardo programando no estúdio",
+      alt: "Leonardo Dario Borges programando",
       gridColumn: "4 / span 5",
       gridRow: "2 / span 4",
       aspectRatio: "4 / 3"
     },
     gallery: [
       {
-        id: "miami-2024",
-        label: "Miami GP, 2024",
-        description: "Landing com journey interativa e microcopys estratégicas.",
+        id: "apis-rest-2025",
+        label: "APIs REST, 2025",
+        description: "Swagger + PHPUnit + Docker + PostgreSQL.",
         image: "/img/highlight-brain.png",
-        alt: "Detalhe de UI",
+        alt: "APIs REST documentadas",
         gridColumn: "1 / span 3",
         gridRow: "3 / span 3",
         aspectRatio: "4 / 5"
       },
       {
-        id: "monaco-golf",
-        label: "Mônaco, 2023",
-        description: "Labs de experimentação visual com WebGL.",
+        id: "acadepol-2025",
+        label: "ACADEPOL/SC, 2025",
+        description: "Seminário internacional de segurança pública.",
         image: "/img/off-track.png",
-        alt: "Protótipo criativo",
+        alt: "VII Seminário ACADEPOL/SC",
         gridColumn: "10 / span 2",
         gridRow: "2 / span 2",
         aspectRatio: "3 / 4",
         tone: "muted"
       },
       {
-        id: "austria-2020",
-        label: "Áustria, 2020",
-        description: "Primeiros sprints com acessibilidade e testes automatizados.",
+        id: "univali-2019",
+        label: "UNIVALI, 2019",
+        description: "Bacharelado em Ciência da Computação.",
         image: "/img/on-track.png",
-        alt: "Primeiros projetos",
+        alt: "Formação acadêmica",
         gridColumn: "9 / span 2",
         gridRow: "5 / span 2",
         aspectRatio: "1 / 1"
       },
       {
-        id: "gala-2024",
-        label: "Gala 2024",
-        description: "Workflows de conteúdo para campanhas periódicas.",
+        id: "empreende-2025",
+        label: "Empreende Brasil, 2025",
+        description: "Conference de 24 horas em inovação.",
         image: "/img/logo-ciano.png",
-        alt: "Marca iluminada",
+        alt: "Empreende Brasil Conference",
         gridColumn: "6 / span 2",
         gridRow: "6 / span 2",
         aspectRatio: "1 / 1",

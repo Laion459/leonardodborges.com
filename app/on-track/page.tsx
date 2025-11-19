@@ -7,19 +7,19 @@ import { ON_TRACK_RESULTS } from "@/lib/data/onTrack";
 
 const PERFORMANCE_PILLARS = [
   {
-    label: "Tempo médio de lançamento",
-    value: "4 semanas",
-    description: "Do discovery ao deploy com pipelines automatizados e QA contínuo."
-  },
-  {
     label: "Stack predominante",
-    value: "Next.js · Edge",
-    description: "RSC, caching inteligente e animações GSAP controladas por métricas."
+    value: "Laravel · React · Next.js",
+    description: "Backend robusto com Laravel, frontend moderno com React/Next.js, Docker e PostgreSQL para escalabilidade."
   },
   {
-    label: "Core Web Vitals",
-    value: ">95",
-    description: "Monitoramento e otimizações desde a concepção da interface."
+    label: "Produtos entregues",
+    value: "5+ projetos",
+    description: "Keyring, ESH, refatoração de sites, integração Asaas e APIs REST documentadas com Swagger."
+  },
+  {
+    label: "Qualidade e testes",
+    value: "PHPUnit · Swagger",
+    description: "APIs testadas com PHPUnit, documentadas com Swagger e deployadas com Docker/PostgreSQL."
   }
 ] as const;
 

@@ -5,18 +5,18 @@ import { gsap } from "@/lib/gsap";
 
 const NEXT_MILESTONE = {
   title: "Sprint atual",
-  subtitle: "Sistema de onboarding com IA para fintech B2B",
-  location: "São Paulo, Brasil",
-  timeframe: "Em andamento — entrega Q1 2026",
+  subtitle: "Desenvolvimento Full Stack e Product Management",
+  location: "Florianópolis, Santa Catarina, Brasil",
+  timeframe: "Em andamento — Eleven Soft",
   description:
-    "Arquitetura em Next.js 15, automação de fluxos com LangChain e integrações em tempo real. Foco em reduzir o tempo de ativação de clientes de 5 dias para 30 minutos.",
-  badges: ["Next.js 15", "LangChain", "Edge Functions"]
+    "Continuando o desenvolvimento de produtos digitais completos na Eleven Soft, com foco em Keyring, ESH, refatoração de sites e integrações. Papel estratégico de Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor.",
+  badges: ["Laravel", "React", "Next.js", "Docker", "PostgreSQL"]
 } as const;
 
 const HIGHLIGHT_STATS = [
-  { label: "Última vitória", value: "NF Motos", detail: "Conversão +62% após redesign" },
-  { label: "Equipe", value: "Core Team • 4 devs", detail: "Liderança técnica e product strategy" },
-  { label: "Disponibilidade", value: "Maio / 2026", detail: "Projetos autorais e consultorias" }
+  { label: "Última conquista", value: "Keyring", detail: "App completo de gestão de licenças" },
+  { label: "Empresa", value: "Eleven Soft", detail: "Desenvolvedor Full Stack desde Fev 2025" },
+  { label: "Disponibilidade", value: "Aberto", detail: "Oportunidades em Full Stack e projetos estratégicos" }
 ] as const;
 
 export function NextMilestoneSection() {

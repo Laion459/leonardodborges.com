@@ -10,59 +10,60 @@ export type HighlightItem = {
 
 export const HIGHLIGHTS: HighlightItem[] = [
   {
-    id: "2025-neural-canvas",
-    title: "Neural Canvas UI",
-    subtitle: "Experiência WebGL + GSAP",
+    id: "2025-keyring",
+    title: "Keyring — Gestão de Licenças",
+    subtitle: "App Web Completo",
     year: "2025",
     description:
-      "Interface generativa com shaders customizados para um laboratório de IA. Transições sensoriais, navegação linear e storytelling audiovisual.",
-    tag: "Experiência Imersiva",
+      "App web completo para gestão de licenças desenvolvido integralmente por mim. Inclui CRUD completo, painéis administrativos, métricas em tempo real, CLI e integrações externas.",
+    tag: "Produto Digital",
     image: "/img/highlight-brain.png"
   },
   {
-    id: "2024-esh-eleven",
-    title: "ESH Eleven Soft",
-    subtitle: "Plataforma SaaS modular",
-    year: "2024",
+    id: "2025-refatoracao-sites",
+    title: "Refatoração dos Sites",
+    subtitle: "Nova Arquitetura React + Tailwind",
+    year: "2025",
     description:
-      "Landing page reativa com componentes reutilizáveis, copy orientada a conversão e integrações com CRM/analytics.",
-    tag: "Produto Digital"
+      "Refatoração completa dos sites da empresa com nova arquitetura React + Tailwind + Blade/Filament. Captação de leads via quizzes, integrações de marketing e materiais promocionais.",
+    tag: "Arquitetura Moderna"
   },
   {
-    id: "2024-nf-motos",
-    title: "NF Motos Turbo",
-    subtitle: "Presença digital + SEO local",
-    year: "2024",
+    id: "2025-esh-sistema",
+    title: "ESH — Monitoramento e Controle",
+    subtitle: "Sistema Proprietário",
+    year: "2025",
     description:
-      "Site institucional com identidade brutalista, formulários de orçamento com automação e otimização de performance para mobile.",
-    tag: "Brand Experience"
+      "Sistema proprietário de monitoramento e controle de terminais com backend Laravel robusto, frontend moderno e integrações contínuas.",
+    tag: "Sistema Proprietário"
   },
   {
-    id: "2023-marina-lab",
-    title: "Marina Jodar Lab",
-    subtitle: "Portfólio dental premium",
-    year: "2023",
+    id: "2025-integracao-asaas",
+    title: "Integração Asaas",
+    subtitle: "Pagamentos e Automações",
+    year: "2025",
     description:
-      "Storytelling visual com foco em qualidade e prova social. Grid fotográfico, depoimentos e CTA estratégico para captação.",
-    tag: "UX Narrativa"
+      "Integração completa com Asaas para processamento de pagamentos (boleto, PIX, cartão) e automações em múltiplos produtos com webhooks robustos.",
+    tag: "Integrações Financeiras"
   },
   {
-    id: "2022-creative-tools",
-    title: "Creative Dev Tools",
-    subtitle: "Design Systems + Automação",
-    year: "2022",
+    id: "2025-apis-rest",
+    title: "APIs REST Documentadas",
+    subtitle: "Swagger + PHPUnit + Docker",
+    year: "2025",
     description:
-      "Kit de componentes e scripts para acelerar prototipagem e consistência visual em múltiplos projetos front-end.",
-    tag: "Tooling"
+      "APIs REST documentadas com Swagger, testadas com PHPUnit, versionadas e deployadas com Docker/PostgreSQL. Foco em boas práticas e segurança.",
+    tag: "Arquitetura de APIs"
   },
   {
-    id: "2021-open-source",
-    title: "Contribuições Open Source",
-    subtitle: "Bibliotecas JS",
-    year: "2021",
+    id: "2025-product-management",
+    title: "Product Management",
+    subtitle: "Liderança Estratégica",
+    year: "2025",
     description:
-      "Fixes, otimizações e documentação para libs JS/TS focadas em performance e DX. Mentoria para novos contribuidores.",
-    tag: "Comunidade"
+      "Papel estratégico de Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor na Eleven Soft.",
+    tag: "Liderança"
   }
 ];
+
 

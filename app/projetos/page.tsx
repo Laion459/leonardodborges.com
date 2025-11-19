@@ -15,35 +15,44 @@ type Projeto = {
 
 const PROJETOS: Projeto[] = [
   {
-    nome: "LDB Digital Experience",
+    nome: "Keyring — Gestão de Licenças",
     descricao:
-      "Narrativa interativa para apresentar minhas experiências com foco em storytelling, performance e animações GSAP integradas a Next.js.",
-    tecnologias: ["Next.js", "TypeScript", "GSAP", "Tailwind CSS"],
-    github: "https://github.com/Laion459",
-    demo: "https://www.leonardodborges.com.br",
+      "App web completo para gestão de licenças desenvolvido integralmente por mim. Inclui CRUD completo, painéis administrativos, métricas em tempo real, CLI para operações e integrações externas. Projeto end-to-end com arquitetura escalável e documentação técnica completa.",
+    tecnologias: ["Laravel", "React", "PostgreSQL", "Docker", "PHPUnit"],
     imagem: "/img/sentado programando no escritorio.png"
   },
   {
-    nome: "NF Motos",
+    nome: "Refatoração dos Sites da Empresa",
     descricao:
-      "Site institucional para oficina mecânica com foco em credibilidade local, SEO e captação de leads via formulários otimizados.",
-    tecnologias: ["HTML", "CSS", "JavaScript", "SEO"],
-    github: "https://github.com/Laion459/LDB",
-    demo: "https://www.leonardodborges.com.br/#nf-motos"
+      "Refatoração completa dos sites da empresa com nova arquitetura utilizando React + Tailwind + Blade/Filament. Implementação de captação de leads via quizzes interativos, integrações de marketing e materiais promocionais. Foco em performance, SEO e experiência do usuário.",
+    tecnologias: ["React", "Tailwind CSS", "Laravel Blade", "Filament"],
+    imagem: "/img/hero-cube.png"
   },
   {
-    nome: "ESH Eleven Soft",
+    nome: "ESH — Sistema de Monitoramento",
     descricao:
-      "Landing page SaaS com estrutura modular, integração a CRM e microinterações para demonstrar produto digital de software.",
-    tecnologias: ["Next.js", "Styled Components", "Framer Motion"],
-    demo: "https://www.leonardodborges.com.br/#esh-eleven-soft"
+      "Sistema proprietário de monitoramento e controle de terminais com backend Laravel robusto, frontend moderno e integrações contínuas. Solução completa para gestão e monitoramento em tempo real com alta disponibilidade e escalabilidade.",
+    tecnologias: ["Laravel", "React", "PostgreSQL", "Docker", "CI/CD"]
   },
   {
-    nome: "Marina Jodar Lab",
+    nome: "Integração com Asaas",
     descricao:
-      "Experiência digital para laboratório de próteses dentárias com ênfase em diferenciais da marca e prova social através de cases.",
-    tecnologias: ["React", "Tailwind CSS", "Vercel"],
-    demo: "https://www.leonardodborges.com.br/#marina-jodar"
+      "Integração completa com Asaas para processamento de pagamentos (boleto, PIX, cartão) e automações em múltiplos produtos. Implementação de webhooks, tratamento de erros e fluxos de reconciliação financeira.",
+    tecnologias: ["Laravel", "REST API", "Webhooks", "PostgreSQL"]
+  },
+  {
+    nome: "APIs REST Documentadas",
+    descricao:
+      "Desenvolvimento de APIs REST documentadas com Swagger, testadas com PHPUnit, versionadas e deployadas com Docker/PostgreSQL. Foco em boas práticas, segurança, performance e documentação técnica completa para facilitar integrações.",
+    tecnologias: ["Laravel", "Swagger", "PHPUnit", "Docker", "PostgreSQL"]
+  },
+  {
+    nome: "Portfólio Digital",
+    descricao:
+      "Narrativa interativa para apresentar minhas experiências com foco em storytelling, performance e animações GSAP integradas a Next.js. Experiência cinematográfica inspirada em F1.",
+    tecnologias: ["Next.js", "TypeScript", "GSAP", "Tailwind CSS"],
+    demo: "https://www.leonardodborges.com.br",
+    imagem: "/img/hero-leonardo.png"
   }
 ];
 

@@ -16,93 +16,82 @@ export type TimelineEvent = {
 
 export const TIMELINE_EVENTS: TimelineEvent[] = [
   {
-    id: "2025-immersive-portfolio",
+    id: "2025-ldb-click",
     year: "2025",
-    title: "Immersive Portfolio Launch",
-    subtitle: "Experiência Cinematográfica em Next.js",
+    title: "Fundador — LDB CLICK",
+    subtitle: "Empreendimento Digital",
     description:
-      "Construção de narrativa digital inspirada em F1 para apresentar projetos de software com GSAP, ScrollTrigger e animações customizadas.",
+      "Fundação da LDB CLICK, focada em soluções digitais e consultoria em tecnologia. Desenvolvimento de produtos digitais de alto impacto e estratégias de inovação.",
     category: "On Track",
-    location: "Florianópolis, Brasil",
+    location: "Florianópolis, Santa Catarina, Brasil",
     size: "lg",
     image: "/img/hero-leonardo.png"
   },
   {
-    id: "2024-tech-lead",
-    year: "2024",
-    title: "Tech Lead em Soluções Industriais",
-    subtitle: "Integrações IoT + Cloud",
+    id: "2025-eleven-soft",
+    year: "2025",
+    title: "Desenvolvedor Full Stack — Eleven Soft",
+    subtitle: "Produtos Digitais & Product Management",
     description:
-      "Coordenei squads para digitalizar processos fabris, implementando dashboards em tempo real e microsserviços escaláveis.",
+      "Atuação como Desenvolvedor Full Stack entregando produtos digitais de ponta a ponta. Papel estratégico de Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor.",
     category: "On Track",
-    location: "Santa Catarina, Brasil",
+    location: "Palhoça, Santa Catarina, Brasil",
     size: "md"
   },
   {
-    id: "2024-community",
-    year: "2024",
-    title: "Mentorias em Comunidades",
-    subtitle: "Open Source & Career Talks",
+    id: "2025-acate-invest",
+    year: "2025",
+    title: "ACATE Invest — Pitch Day",
+    subtitle: "Evento de Inovação e Empreendedorismo",
     description:
-      "Workshops sobre engenharia de software, segurança da informação e rotas de carreira para estudantes de tecnologia.",
+      "Participação no ACATE Invest — Pitch Day, evento intenso com empreendedores competindo por patrocínio, ideias afiadas e energia alta. Oportunidade de networking e evolução profissional.",
     category: "Off Track",
-    location: "Joinville, Brasil",
+    location: "Florianópolis, Santa Catarina, Brasil",
     size: "sm"
   },
   {
-    id: "2023-startup",
-    year: "2023",
-    title: "Startup Weekend Winner",
-    subtitle: "Experiência em Inovação",
+    id: "2025-acadepol",
+    year: "2025",
+    title: "VII Seminário Internacional ACADEPOL/SC",
+    subtitle: "Ciência, Tecnologia, Inovação e Segurança Pública",
     description:
-      "Protótipo funcional em 54 horas combinando UX, arquitetura e pitch para apresentar solução de IA aplicada à educação.",
-    category: "On Track",
-    location: "Blumenau, Brasil",
+      "Participação no VII Seminário Internacional de Ciência, Tecnologia, Inovação e Segurança Pública, parceria entre ACADEPOL-SC, EGC e UFSC. Ambiente técnico com representantes de forças de segurança de diversas regiões do país.",
+    category: "Off Track",
+    location: "Florianópolis, Santa Catarina, Brasil",
     size: "md"
   },
   {
-    id: "2022-certification",
-    year: "2022",
-    title: "Certificação em Segurança",
-    subtitle: "Hardening & Incident Response",
+    id: "2023-pentest",
+    year: "2023",
+    title: "Certificação — Introdução ao Pentest na Prática",
+    subtitle: "Desec Security",
     description:
-      "Estudos focados em estratégias de contenção, análise de logs e defesa proativa de aplicações e infraestrutura.",
+      "Certificação em Introdução ao Pentest na Prática pela Desec Security, aprofundando conhecimentos em segurança da informação e testes de penetração.",
     category: "On Track",
     location: "Online",
     size: "sm"
   },
   {
-    id: "2021-creative-labs",
-    year: "2021",
-    title: "Creative Coding Labs",
-    subtitle: "Experimentos em Arte Generativa",
+    id: "2016-tmot",
+    year: "2016",
+    title: "Fundador — TMOT The Magic Of Traveling",
+    subtitle: "Gestão de Propriedades e Locação Temporária",
     description:
-      "Explorações com shaders, WebGL e música procedimental para criar experiências sensoriais na web.",
+      "Gerente de propriedades especializado em locações de temporada. Soluções completas para proprietários que buscam maximizar rentabilidade sem se preocupar com a operação. Gestão de reservas, check-in/out, limpeza e lavanderia.",
     category: "Off Track",
-    location: "Remote",
+    location: "Florianópolis, Santa Catarina, Brasil",
     size: "lg"
   },
   {
-    id: "2020-freelance",
-    year: "2020",
-    title: "Primeiros Projetos Freelance",
-    subtitle: "Landing Pages & Automação",
-    description:
-      "Desenvolvi soluções end-to-end para pequenas empresas, com foco em captação de leads e integrações low-code.",
-    category: "On Track",
-    location: "Itajaí, Brasil",
-    size: "md"
-  },
-  {
-    id: "2019-computer-science",
+    id: "2019-univali",
     year: "2019",
-    title: "Ingressou em Ciência da Computação",
-    subtitle: "UNIVALI",
+    title: "Bacharelado em Ciência da Computação",
+    subtitle: "Universidade do Vale do Itajaí — UNIVALI",
     description:
-      "Primeiro contato com engenharia de software, algoritmos, sistemas operacionais e visão de carreira em tecnologia.",
+      "Ingresso no curso de Bacharelado em Ciência da Computação. Base sólida em C, C++, PHP, Python e Java, aplicada à arquitetura e boas práticas em desenvolvimento full stack. Formação com ênfase em engenharia de software, sistemas operacionais, segurança e computação forense.",
     category: "On Track",
-    location: "Balneário Camboriú",
-    size: "sm"
+    location: "Balneário Camboriú, Santa Catarina, Brasil",
+    size: "md"
   }
 ];
 

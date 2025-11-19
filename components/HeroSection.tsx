@@ -44,21 +44,21 @@ export function HeroSection() {
 
       <header className="max-w-5xl space-y-6" data-hero-animate>
         <p className="text-[0.62rem] uppercase tracking-[0.36em] text-accent sm:text-xs sm:tracking-[0.4em]">
-          Leonardo Dario Borges — Desenvolvedor de Software
+          Leonardo Dario Borges — Desenvolvedor Full Stack | Laravel | React | Next.js | Node.js | Python
         </p>
         <h1 className="font-display text-[3rem] uppercase leading-[1.03] tracking-[0.1em] sm:text-[3.4rem] sm:tracking-[0.14em] md:text-[4.2rem] md:tracking-[0.16em] lg:text-[4.8rem] xl:text-[5.4rem]">
           Sempre levando a luta para o código.
-          <span className="block text-accent">Construindo experiências imersivas, on e off track.</span>
+          <span className="block text-accent">Construindo produtos digitais completos, on e off track.</span>
         </h1>
         <p ref={subtitleRef} className="space-y-2 text-sm text-foreground/70 sm:text-base md:text-lg">
           <span className="block overflow-hidden">
-            <span className="inline-block">Desde 2019, transformo estratégias digitais em histórias interativas,</span>
+            <span className="inline-block">Desenvolvedor Full Stack na Eleven Soft, entregando produtos digitais de ponta a ponta,</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="inline-block">usando Next.js, GSAP e engenharia de software para entregar performance real.</span>
+            <span className="inline-block">do backend ao frontend, com foco em métricas, experiência do usuário e impacto direto no negócio.</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="inline-block">Este é o meu paddock — tudo que acelera minha trajetória como dev.</span>
+            <span className="inline-block">Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor.</span>
           </span>
         </p>
       </header>
@@ -95,17 +95,16 @@ export function HeroSection() {
             <div>
               <p className="text-[0.58rem] uppercase tracking-[0.32em] text-foreground/40">Base Técnica</p>
               <p className="mt-2 font-display text-3xl uppercase tracking-[0.14em] text-foreground">Full Stack</p>
-              <p className="mt-2 text-xs uppercase tracking-[0.3em] text-foreground/45">Next.js · GSAP · Edge</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.3em] text-foreground/45">Laravel · React · Next.js · Docker</p>
             </div>
           </div>
         </div>
         <div className="rounded-[2.5rem] border border-accent/20 bg-accent/10 p-6 text-background backdrop-blur">
           <p className="text-[0.62rem] uppercase tracking-[0.32em]">Mensagem do Leonardo</p>
           <p className="mt-5 font-display text-[1.6rem] uppercase tracking-[0.12em]">
-            “Não importa onde você começa, e sim como evolui cada entrega. Eu crio experiências que ressoam, elevam marcas e criam
-            valor real.”
+            "Entrego produtos completos, não apenas código. Reconhecido por rapidez, qualidade e visão estratégica. Cada projeto é uma oportunidade de criar impacto real."
           </p>
-          <p className="mt-6 text-sm uppercase tracking-[0.3em] text-accent/90">2025 — Florianópolis, Brasil</p>
+          <p className="mt-6 text-sm uppercase tracking-[0.3em] text-accent/90">2025 — Florianópolis, Santa Catarina, Brasil</p>
         </div>
       </div>
     </section>

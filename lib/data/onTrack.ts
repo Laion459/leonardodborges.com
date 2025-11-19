@@ -12,52 +12,64 @@ export type OnTrackResult = {
 
 export const ON_TRACK_RESULTS: OnTrackResult[] = [
   {
-    id: "nf-motos",
+    id: "keyring",
     year: "2025",
-    client: "NF Motos",
-    project: "Plataforma de agendamento e acompanhamento em tempo real",
-    role: "Tech Lead · UX Strategy · Performance",
+    client: "Eleven Soft",
+    project: "Keyring — App Web Completo para Gestão de Licenças",
+    role: "Desenvolvedor Full Stack · Product Manager",
     summary:
-      "Reestruturação completa do site institucional para oficina premium, com funil de conversão centrado em agendamentos e SEO local. Resultado: experiência mobile-first com animações leves e credibilidade reforçada por storytelling.",
-    metrics: ["+62% leads em 45 dias", "Core Web Vitals nota 98", "1.4s TTFB médio"],
+      "App web completo para gestão de licenças desenvolvido integralmente por mim. Inclui CRUD completo, painéis administrativos, métricas em tempo real, CLI para operações, e integrações externas. Projeto end-to-end com arquitetura escalável e documentação técnica completa.",
+    metrics: ["100% desenvolvimento próprio", "Sistema completo de gestão", "CLI integrado"],
     image: "/img/highlight-brain.png",
-    stack: ["Next.js", "GSAP", "Tailwind CSS", "Cloudflare"]
+    stack: ["Laravel", "React", "PostgreSQL", "Docker", "PHPUnit"]
   },
   {
-    id: "marina-jodar",
-    year: "2024",
-    client: "Marina Jodar Lab",
-    project: "Experiência digital de próteses dentárias com showroom interativo",
-    role: "Product Designer · Front-end Engineer",
+    id: "refatoracao-sites",
+    year: "2025",
+    client: "Eleven Soft",
+    project: "Refatoração dos Sites da Empresa — Nova Arquitetura e Captação de Leads",
+    role: "Desenvolvedor Full Stack · UX Strategy",
     summary:
-      "Criação de journey digital para laboratório boutique com foco em diferenciais técnicos, prova social e fluxo de contato direto. Microinterações com GSAP e conteúdo editorial alinham marca e autoridade.",
-    metrics: ["Tempo médio na página +210%", "Bounce Rate -38%", "100% SEO técnico"],
+      "Refatoração completa dos sites da empresa com nova arquitetura utilizando React + Tailwind + Blade/Filament. Implementação de captação de leads via quizzes interativos, integrações de marketing e materiais promocionais. Foco em performance, SEO e experiência do usuário.",
+    metrics: ["Nova arquitetura moderna", "Captação via quizzes", "Integrações de marketing"],
     image: "/img/hero-cube.png",
-    stack: ["React", "Vercel", "Tailwind CSS"]
+    stack: ["React", "Tailwind CSS", "Laravel Blade", "Filament"]
   },
   {
-    id: "esh-eleven",
-    year: "2024",
-    client: "ESH Eleven Soft",
-    project: "Landing Page SaaS com CRM integrado",
-    role: "Front-end Engineer · Motion Designer",
+    id: "esh-sistema",
+    year: "2025",
+    client: "Eleven Soft",
+    project: "ESH — Sistema Proprietário de Monitoramento e Controle",
+    role: "Desenvolvedor Full Stack · Arquitetura",
     summary:
-      "Desenvolvimento de landing modular para software de logística com integrações automáticas em CRM e conteúdo dinâmico via CMS headless. Animações sincronizadas com narrativa de produto.",
-    metrics: ["+35% MQLs no trimestre", "0.7s LCP", "Playbook CMS em Notion"],
+      "Sistema proprietário de monitoramento e controle de terminais com backend Laravel robusto, frontend moderno e integrações contínuas. Solução completa para gestão e monitoramento em tempo real com alta disponibilidade e escalabilidade.",
+    metrics: ["Backend Laravel robusto", "Frontend moderno", "Integrações contínuas"],
     image: "/img/off-track.png",
-    stack: ["Next.js", "Styled Components", "GSAP", "HubSpot"]
+    stack: ["Laravel", "React", "PostgreSQL", "Docker", "CI/CD"]
   },
   {
-    id: "esh-mentor",
-    year: "2023",
-    client: "Mentorias Autorais",
-    project: "Programa de aceleração para equipes de produto",
-    role: "Mentor · Facilitador · Engenheiro",
+    id: "integracao-asaas",
+    year: "2025",
+    client: "Eleven Soft",
+    project: "Integração com Asaas — Pagamentos e Automações",
+    role: "Desenvolvedor Backend · Integrações",
     summary:
-      "Estruturação de programa intensivo para squads de tecnologia com foco em arquitetura frontend, acessibilidade e entregas orientadas a métricas. Incluiu diagnósticos, pair-programming e revisão de pipelines.",
-    metrics: ["8 equipes mentoradas", "Roadmaps triplamente validados", "Playbooks replicáveis"],
+      "Integração completa com Asaas para processamento de pagamentos (boleto, PIX, cartão) e automações em múltiplos produtos. Implementação de webhooks, tratamento de erros e fluxos de reconciliação financeira.",
+    metrics: ["Múltiplos métodos de pagamento", "Automações integradas", "Webhooks robustos"],
     image: "/img/on-track.png",
-    stack: ["Workshops", "Figma", "Design Systems", "CI/CD"]
+    stack: ["Laravel", "REST API", "Webhooks", "PostgreSQL"]
+  },
+  {
+    id: "apis-rest",
+    year: "2025",
+    client: "Eleven Soft",
+    project: "APIs REST Documentadas e Testadas",
+    role: "Desenvolvedor Backend · Arquitetura de APIs",
+    summary:
+      "Desenvolvimento de APIs REST documentadas com Swagger, testadas com PHPUnit, versionadas e deployadas com Docker/PostgreSQL. Foco em boas práticas, segurança, performance e documentação técnica completa para facilitar integrações.",
+    metrics: ["Documentação Swagger", "Cobertura PHPUnit", "Versionamento semântico"],
+    image: "/img/highlight-brain.png",
+    stack: ["Laravel", "Swagger", "PHPUnit", "Docker", "PostgreSQL"]
   }
 ];
 
