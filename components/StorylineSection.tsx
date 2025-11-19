@@ -42,6 +42,12 @@ export function StorylineSection() {
             return;
           }
 
+          // Progress aumenta quando desce a página (0 -> 1)
+          // Cards estão ordenados: mais novos (esquerda) -> mais antigos (direita)
+          // Ao descer, queremos ver progressivamente os cards mais antigos
+          // Isso significa mover o track para a esquerda (valores negativos de x)
+          // Quando progress = 0: x = 0 (início, cards novos à esquerda visíveis)
+          // Quando progress = 1: x = -distance (fim, cards antigos à direita visíveis)
           const progress = self.progress;
           gsap.set(track, { x: -distance * progress });
         }
@@ -92,53 +98,76 @@ export function StorylineSection() {
             minWidth: "100%"
           }}
         >
-          {STORYLINE_ITEMS.map((item) => (
-            <div
-              key={item.id}
-              className="group relative flex h-[280px] w-[200px] flex-shrink-0 flex-col items-center justify-start gap-3 rounded-2xl border border-foreground/10 bg-background/85 p-4 backdrop-blur transition-all duration-300 hover:border-accent/40 hover:bg-background/95 sm:h-[320px] sm:w-[240px] sm:gap-4 sm:p-5 md:h-[360px] md:w-[280px] lg:h-[400px] lg:w-[320px]"
-            >
-              <div className="flex w-full items-center justify-between text-[0.55rem] uppercase tracking-[0.28em] text-foreground/50 sm:text-[0.6rem]">
-                <span>{item.year}</span>
-                <span
-                  className={clsx(
-                    "rounded-full px-2 py-0.5 text-[0.5rem] uppercase tracking-[0.24em] sm:px-2.5 sm:text-[0.55rem]",
-                    item.category === "On Track"
-                      ? "bg-accent/20 text-accent"
-                      : "bg-foreground/10 text-foreground/70"
+          {STORYLINE_ITEMS.map((item) => {
+            const CardContent = (
+              <>
+                <div className="flex w-full items-center justify-between text-[0.55rem] uppercase tracking-[0.28em] text-foreground/50 sm:text-[0.6rem]">
+                  <span>{item.year}</span>
+                  <span
+                    className={clsx(
+                      "rounded-full px-2 py-0.5 text-[0.5rem] uppercase tracking-[0.24em] sm:px-2.5 sm:text-[0.55rem]",
+                      item.category === "On Track"
+                        ? "bg-accent/20 text-accent"
+                        : "bg-foreground/10 text-foreground/70"
+                    )}
+                  >
+                    {item.category === "On Track" ? "On" : "Off"}
+                  </span>
+                </div>
+
+                <div className="relative h-32 w-full overflow-hidden rounded-xl border border-foreground/10 bg-background/60 sm:h-40 md:h-44 lg:h-48">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center text-[0.55rem] uppercase tracking-[0.24em] text-foreground/30">
+                      Sem imagem
+                    </div>
                   )}
+                </div>
+
+                <div className="flex flex-1 flex-col justify-start gap-1.5 text-center sm:gap-2">
+                  <h3 className="font-display text-xs uppercase leading-tight tracking-[0.12em] text-foreground sm:text-sm sm:tracking-[0.14em] md:text-base">
+                    {item.title}
+                  </h3>
+                  <p className="text-[0.6rem] leading-relaxed text-foreground/60 sm:text-[0.65rem] md:text-xs">
+                    {item.shortDescription}
+                  </p>
+                  <p className="mt-auto text-[0.55rem] uppercase tracking-[0.24em] text-foreground/40 sm:text-[0.6rem]">
+                    {item.location}
+                  </p>
+                </div>
+              </>
+            );
+
+            const cardClassName =
+              "group relative flex h-[280px] w-[200px] flex-shrink-0 flex-col items-center justify-start gap-3 rounded-2xl border border-foreground/10 bg-background/85 p-4 backdrop-blur transition-all duration-300 hover:border-accent/40 hover:bg-background/95 sm:h-[320px] sm:w-[240px] sm:gap-4 sm:p-5 md:h-[360px] md:w-[280px] lg:h-[400px] lg:w-[320px]";
+
+            if (item.link) {
+              return (
+                <a
+                  key={item.id}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={clsx(cardClassName, "cursor-pointer")}
+                  data-cursor="interactive"
                 >
-                  {item.category === "On Track" ? "On" : "Off"}
-                </span>
-              </div>
+                  {CardContent}
+                </a>
+              );
+            }
 
-              <div className="relative h-32 w-full overflow-hidden rounded-xl border border-foreground/10 bg-background/60 sm:h-40 md:h-44 lg:h-48">
-                {item.image ? (
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center text-[0.55rem] uppercase tracking-[0.24em] text-foreground/30">
-                    Sem imagem
-                  </div>
-                )}
+            return (
+              <div key={item.id} className={cardClassName}>
+                {CardContent}
               </div>
-
-              <div className="flex flex-1 flex-col justify-start gap-1.5 text-center sm:gap-2">
-                <h3 className="font-display text-xs uppercase leading-tight tracking-[0.12em] text-foreground sm:text-sm sm:tracking-[0.14em] md:text-base">
-                  {item.title}
-                </h3>
-                <p className="text-[0.6rem] leading-relaxed text-foreground/60 sm:text-[0.65rem] md:text-xs">
-                  {item.shortDescription}
-                </p>
-                <p className="mt-auto text-[0.55rem] uppercase tracking-[0.24em] text-foreground/40 sm:text-[0.6rem]">
-                  {item.location}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
 
           {/* CTA Card */}
           <div className="relative flex h-[280px] w-[200px] flex-shrink-0 flex-col items-center justify-center gap-4 rounded-2xl border border-foreground/12 bg-background/90 p-5 backdrop-blur sm:h-[320px] sm:w-[240px] sm:gap-5 sm:p-6 md:h-[360px] md:w-[280px] lg:h-[400px] lg:w-[320px]">
