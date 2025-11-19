@@ -102,7 +102,7 @@ export function HeroSection() {
         <div className="rounded-2xl border border-accent/20 bg-accent/10 p-5 text-background backdrop-blur sm:rounded-[2.5rem] sm:p-6">
           <p className="text-[0.6rem] uppercase tracking-[0.3em] sm:text-[0.62rem] sm:tracking-[0.32em]">Mensagem do Leonardo</p>
           <p className="mt-4 font-display text-lg uppercase leading-tight tracking-[0.1em] sm:mt-5 sm:text-[1.6rem] sm:tracking-[0.12em]">
-            "Entrego produtos completos, não apenas código. Reconhecido por rapidez, qualidade e visão estratégica. Cada projeto é uma oportunidade de criar impacto real."
+            &ldquo;Entrego produtos completos, não apenas código. Reconhecido por rapidez, qualidade e visão estratégica. Cada projeto é uma oportunidade de criar impacto real.&rdquo;
           </p>
           <p className="mt-4 text-xs uppercase tracking-[0.28em] text-accent/90 sm:mt-6 sm:text-sm sm:tracking-[0.3em]">2025 — Florianópolis, Santa Catarina, Brasil</p>
         </div>
