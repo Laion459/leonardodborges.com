@@ -10,50 +10,24 @@ export type HighlightItem = {
 
 export const HIGHLIGHTS: HighlightItem[] = [
   {
-    id: "2025-keyring",
-    title: "Keyring — Gestão de Licenças",
-    subtitle: "App Web Completo",
+    id: "2025-nf-motos",
+    title: "NF Motos Performance",
+    subtitle: "Transformação Digital Completa",
     year: "2025",
     description:
-      "App web completo para gestão de licenças desenvolvido integralmente por mim. Inclui CRUD completo, painéis administrativos, métricas em tempo real, CLI e integrações externas.",
-    tag: "Produto Digital",
-    image: "/img/highlight-brain.png"
+      "Sistema de agendamento online e brand storytelling para oficina de alta performance. Resultado: 300% aumento em agendamentos online e posicionamento premium no mercado.",
+    tag: "E-commerce Premium",
+    image: "/img/photos for cards/nf motos.webp"
   },
   {
-    id: "2025-refatoracao-sites",
-    title: "Refatoração dos Sites",
-    subtitle: "Nova Arquitetura React + Tailwind",
+    id: "2025-marina-jodar",
+    title: "Marina Jodar Lab",
+    subtitle: "Experiência Digital Boutique",
     year: "2025",
     description:
-      "Refatoração completa dos sites da empresa com nova arquitetura React + Tailwind + Blade/Filament. Captação de leads via quizzes, integrações de marketing e materiais promocionais.",
-    tag: "Arquitetura Moderna"
-  },
-  {
-    id: "2025-esh-sistema",
-    title: "ESH — Monitoramento e Controle",
-    subtitle: "Sistema Proprietário",
-    year: "2025",
-    description:
-      "Sistema proprietário de monitoramento e controle de terminais com backend Laravel robusto, frontend moderno e integrações contínuas.",
-    tag: "Sistema Proprietário"
-  },
-  {
-    id: "2025-integracao-asaas",
-    title: "Integração Asaas",
-    subtitle: "Pagamentos e Automações",
-    year: "2025",
-    description:
-      "Integração completa com Asaas para processamento de pagamentos (boleto, PIX, cartão) e automações em múltiplos produtos com webhooks robustos.",
-    tag: "Integrações Financeiras"
-  },
-  {
-    id: "2025-apis-rest",
-    title: "APIs REST Documentadas",
-    subtitle: "Swagger + PHPUnit + Docker",
-    year: "2025",
-    description:
-      "APIs REST documentadas com Swagger, testadas com PHPUnit, versionadas e deployadas com Docker/PostgreSQL. Foco em boas práticas e segurança.",
-    tag: "Arquitetura de APIs"
+      "Plataforma digital para laboratório odontológico com foco em diferenciais técnicos e inbound marketing. Design sofisticado que reflete a qualidade do serviço.",
+    tag: "Saúde & Estética",
+    image: "/img/photos for cards/marina jodar lab de proteses dentarias.webp"
   },
   {
     id: "2025-product-management",
@@ -61,8 +35,39 @@ export const HIGHLIGHTS: HighlightItem[] = [
     subtitle: "Liderança Estratégica",
     year: "2025",
     description:
-      "Papel estratégico de Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor na Eleven Soft.",
-    tag: "Liderança"
+      "Papel estratégico de Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor na Eleven Soft. Visão de negócio aliada à excelência técnica.",
+    tag: "Liderança",
+    image: "/img/photos for cards/eleven soft.webp"
+  },
+  {
+    id: "2025-acadepol",
+    title: "VII Seminário ACADEPOL/SC",
+    subtitle: "Segurança Pública & Tecnologia",
+    year: "2025",
+    description:
+      "Participação em seminário internacional de segurança pública apresentando tecnologia aplicada. Networking estratégico com representantes de forças de segurança nacionais.",
+    tag: "Eventos Técnicos",
+    image: "/img/photos for cards/policia civil acadepol canas 11-2025.webp"
+  },
+  {
+    id: "2025-criptografia-quantica",
+    title: "Criptografia Pós-Quântica",
+    subtitle: "Preparação para o Futuro",
+    year: "2024-2025",
+    description:
+      "Especialização em criptografia resistente a computadores quânticos. Preparação estratégica para a próxima era da segurança digital e proteção de dados.",
+    tag: "Cibersegurança",
+    image: "/img/photos for cards/criptografia pos quantica.webp"
+  },
+  {
+    id: "2024-laravel-malt",
+    title: "Formação MALT — Laravel PHP",
+    subtitle: "40h de Especialização",
+    year: "2024-2025",
+    description:
+      "Formação completa em Laravel PHP focada em boas práticas, arquitetura MVC, Eloquent ORM, testes automatizados e desenvolvimento full stack de alto nível.",
+    tag: "Formação Técnica",
+    image: "/img/photos for cards/especializacao laravel beer and code.webp"
   }
 ];
 

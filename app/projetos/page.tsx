@@ -31,20 +31,24 @@ const PROJETOS: Projeto[] = [
   {
     nome: "ESH — Sistema de Monitoramento e Controle de Terminais",
     descricao:
-      "Sistema proprietário completo para monitoramento e controle remoto de terminais em tempo real. Backend Laravel robusto com processamento assíncrono, filas de jobs, cache distribuído e otimização de queries. Frontend moderno com React, atualizações em tempo real via WebSockets, dashboards interativos, alertas configuráveis e histórico de eventos. Integrações contínuas com CI/CD, testes automatizados, monitoramento de performance e sistema de logs centralizado.",
-    tecnologias: ["Laravel", "React", "PostgreSQL", "Docker", "WebSockets", "Redis", "CI/CD", "Queue Jobs"]
+      "Sistema completo que reduz tempo de resposta em até 70% com monitoramento em tempo real e automação de processos. Backend Laravel robusto com processamento assíncrono, filas de jobs, cache distribuído. Frontend moderno com React, atualizações via WebSockets, dashboards interativos e alertas configuráveis. CI/CD automatizado, testes e monitoramento de performance.",
+    tecnologias: ["Laravel", "React", "PostgreSQL", "Docker", "WebSockets", "Redis", "CI/CD", "Queue Jobs"],
+    imagem: "/img/photos for cards/esh-dashboard.webp",
+    demo: "https://esh.elevensoft.dev/"
   },
   {
     nome: "Integração Completa com Asaas — Gateway de Pagamentos",
     descricao:
-      "Integração completa e robusta com gateway de pagamentos Asaas para processamento de múltiplos métodos: boleto bancário, PIX (QR Code e chave), cartão de crédito (1x e parcelado) e débito automático. Implementação de webhooks seguros com validação de assinatura, sistema de retry automático, tratamento de erros e exceções, fluxos de reconciliação financeira automatizados, dashboard de transações, relatórios financeiros e sistema de notificações para clientes.",
-    tecnologias: ["Laravel", "REST API", "Webhooks", "PostgreSQL", "Queue Jobs", "Cryptography", "Payment Gateway"]
+      "Integração que aumenta conversão de pagamentos em 40% com múltiplos métodos: boleto, PIX, cartão de crédito e débito automático. Webhooks seguros com validação de assinatura, retry automático, reconciliação financeira automatizada e dashboard de transações em tempo real. Resultado: redução de 60% no tempo de reconciliação.",
+    tecnologias: ["Laravel", "REST API", "Webhooks", "PostgreSQL", "Queue Jobs", "Cryptography", "Payment Gateway"],
+    imagem: "/img/photos for cards/integracoes-pagamentos.webp"
   },
   {
     nome: "APIs RESTful Documentadas e Testadas",
     descricao:
-      "Desenvolvimento de APIs RESTful seguindo padrões de mercado com documentação completa via Swagger/OpenAPI, autenticação JWT, rate limiting, versionamento semântico (v1, v2), validação de dados robusta, tratamento de erros padronizado, testes automatizados com PHPUnit (cobertura >80%), deploy automatizado com Docker, integração com PostgreSQL, cache estratégico com Redis e monitoramento de performance com logging estruturado.",
-    tecnologias: ["Laravel", "Swagger", "PHPUnit", "Docker", "PostgreSQL", "Redis", "JWT", "OpenAPI"]
+      "APIs que aumentam produtividade de desenvolvedores em 50% com documentação Swagger completa e testes automatizados (cobertura >80%). Autenticação JWT, rate limiting, versionamento semântico e monitoramento de performance. Deploy automatizado com Docker/PostgreSQL e cache estratégico com Redis.",
+    tecnologias: ["Laravel", "Swagger", "PHPUnit", "Docker", "PostgreSQL", "Redis", "JWT", "OpenAPI"],
+    imagem: "/img/photos for cards/integracoes-pagamentos.webp"
   },
   {
     nome: "Sistema de Gestão de Propriedades e Reservas — TMOT",
@@ -88,8 +92,7 @@ export default function ProjectsPage() {
         <p className="text-[0.65rem] uppercase tracking-[0.3em] text-accent sm:text-xs sm:tracking-[0.35em]">Projetos</p>
         <h1 className="font-display text-3xl uppercase tracking-[0.2em] sm:text-4xl sm:tracking-[0.22em] md:text-5xl md:tracking-[0.25em] lg:text-6xl">Experiências em Destaque</h1>
         <p className="max-w-2xl text-sm text-foreground/70 sm:text-base">
-          Cada projeto é um laboratório onde combino design, tecnologia e negócios. Priorizo experiências fluidas, performance de
-          alto nível e comunicação que conecte pessoas à proposta de valor do produto.
+          Soluções que reduzem tempo de operação em até 70%, aumentam conversões e impulsionam negócios. Cada projeto combina design, tecnologia e resultados mensuráveis.
         </p>
       </header>
 
@@ -121,13 +124,15 @@ export default function ProjectsPage() {
             </div>
             <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.32em] sm:gap-6 sm:text-sm sm:tracking-[0.35em]">
               {projeto.demo && (
-                <a href={projeto.demo} target="_blank" rel="noopener noreferrer" data-cursor="interactive" className="text-accent hover:text-accent/80 transition-colors">
-                  Ver demo
+                <a href={projeto.demo} target="_blank" rel="noopener noreferrer" data-cursor="interactive" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-all hover:gap-3">
+                  Ver Projeto
+                  <span className="block h-px w-6 bg-accent transition-all hover:w-8" aria-hidden />
                 </a>
               )}
               {projeto.github && (
-                <a href={projeto.github} target="_blank" rel="noopener noreferrer" data-cursor="interactive" className="text-accent hover:text-accent/80 transition-colors">
-                  GitHub
+                <a href={projeto.github} target="_blank" rel="noopener noreferrer" data-cursor="interactive" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-all hover:gap-3">
+                  Ver Código
+                  <span className="block h-px w-6 bg-accent transition-all hover:w-8" aria-hidden />
                 </a>
               )}
             </div>

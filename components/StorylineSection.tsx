@@ -92,7 +92,7 @@ export function StorylineSection() {
         <div
           ref={trackRef}
           data-storyline-track
-          className="relative flex h-full items-center gap-6 px-4 py-16 sm:gap-8 sm:px-6 md:gap-10 md:px-8 lg:gap-12 lg:px-12"
+          className="relative flex h-full items-center gap-6 px-4 py-16 sm:gap-8 sm:px-6 md:gap-12 md:px-8 lg:gap-12 lg:px-12"
           style={{
             width: "max-content",
             minWidth: "100%"
@@ -145,7 +145,7 @@ export function StorylineSection() {
             );
 
             const cardClassName =
-              "group relative flex h-[280px] w-[200px] flex-shrink-0 flex-col items-center justify-start gap-3 rounded-2xl border border-foreground/10 bg-background/85 p-4 backdrop-blur transition-all duration-300 hover:border-accent/40 hover:bg-background/95 sm:h-[320px] sm:w-[240px] sm:gap-4 sm:p-5 md:h-[360px] md:w-[280px] lg:h-[400px] lg:w-[320px]";
+              "group relative flex h-[280px] w-[200px] flex-shrink-0 flex-col items-center justify-start gap-3 rounded-2xl border border-foreground/10 bg-background/85 p-4 backdrop-blur transition-all duration-300 hover:border-accent/60 hover:bg-background/95 hover:shadow-[0_0_30px_rgba(0,255,255,0.2)] hover:-translate-y-1 sm:h-[320px] sm:w-[240px] sm:gap-4 sm:p-5 md:h-[360px] md:w-[280px] lg:h-[400px] lg:w-[320px]";
 
             if (item.link) {
               return (
@@ -177,21 +177,26 @@ export function StorylineSection() {
                 Explore outros destinos
               </h3>
               <p className="text-[0.6rem] leading-relaxed text-foreground/70 sm:text-[0.65rem] md:text-xs">
-                Continue a jornada navegando pelos capítulos completos do portfólio.
+                Explore projetos detalhados, estudos de caso e resultados reais em produção.
               </p>
             </div>
             <div className="mt-auto grid w-full gap-2">
-              {NAVIGATION_LINKS.filter((link) => link.href !== "/").slice(0, 2).map((link) => (
-                <a
-                  key={`storyline-cta-${link.href}`}
-                  href={link.href}
-                  data-cursor="interactive"
-                  className="flex items-center justify-between rounded-xl border border-foreground/15 bg-background/75 px-3 py-2 text-[0.6rem] uppercase tracking-[0.24em] text-foreground/75 transition hover:border-accent hover:text-accent sm:rounded-2xl sm:px-4 sm:py-2.5 sm:text-[0.65rem]"
-                >
-                  {link.label}
-                  <span className="block h-px w-6 bg-foreground/30 sm:w-8" aria-hidden />
-                </a>
-              ))}
+              <a
+                href="/on-track"
+                data-cursor="interactive"
+                className="flex items-center justify-between rounded-xl border border-foreground/15 bg-background/75 px-3 py-2 text-[0.6rem] uppercase tracking-[0.24em] text-foreground/75 transition-all hover:border-accent hover:bg-accent/10 hover:text-accent hover:scale-105 sm:rounded-2xl sm:px-4 sm:py-2.5 sm:text-[0.65rem]"
+              >
+                Explorar Projetos
+                <span className="block h-px w-6 bg-foreground/30 sm:w-8" aria-hidden />
+              </a>
+              <a
+                href="/contato"
+                data-cursor="interactive"
+                className="flex items-center justify-between rounded-xl border border-foreground/15 bg-background/75 px-3 py-2 text-[0.6rem] uppercase tracking-[0.24em] text-foreground/75 transition-all hover:border-accent hover:bg-accent/10 hover:text-accent hover:scale-105 sm:rounded-2xl sm:px-4 sm:py-2.5 sm:text-[0.65rem]"
+              >
+                Falar Comigo
+                <span className="block h-px w-6 bg-foreground/30 sm:w-8" aria-hidden />
+              </a>
             </div>
           </div>
         </div>

@@ -50,17 +50,32 @@ export function HeroSection() {
           Sempre levando a luta para o código.
           <span className="block text-accent">Construindo produtos digitais completos, on e off track.</span>
         </h1>
-        <p ref={subtitleRef} className="space-y-2 text-xs leading-relaxed text-foreground/70 sm:text-sm sm:leading-normal md:text-base lg:text-lg">
+        <p ref={subtitleRef} className="space-y-2 text-xs leading-relaxed text-foreground/75 sm:text-sm sm:leading-normal md:text-base lg:text-lg">
           <span className="block overflow-hidden">
-            <span className="inline-block">Desenvolvedor Full Stack na Eleven Soft, entregando produtos digitais de ponta a ponta,</span>
+            <span className="inline-block">Produtos completos, não apenas código.</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="inline-block">do backend ao frontend, com foco em métricas, experiência do usuário e impacto direto no negócio.</span>
-          </span>
-          <span className="block overflow-hidden">
-            <span className="inline-block">Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor.</span>
+            <span className="inline-block">Entregando soluções de ponta a ponta com foco em impacto direto no negócio, métricas e experiência do usuário.</span>
           </span>
         </p>
+        <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4" data-hero-animate>
+          <a
+            href="/on-track"
+            className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2.5 text-xs uppercase tracking-[0.32em] text-accent transition-all duration-300 hover:border-accent hover:bg-accent/20 hover:scale-105 sm:px-6 sm:py-3 sm:text-sm sm:tracking-[0.35em]"
+            data-cursor="interactive"
+          >
+            Ver Projetos
+            <span className="block h-px w-6 bg-accent sm:w-8" aria-hidden />
+          </a>
+          <a
+            href="/contato"
+            className="inline-flex items-center gap-2 rounded-full border border-foreground/30 bg-background/60 px-5 py-2.5 text-xs uppercase tracking-[0.32em] text-foreground/80 transition-all duration-300 hover:border-foreground/50 hover:bg-background/80 hover:scale-105 sm:px-6 sm:py-3 sm:text-sm sm:tracking-[0.35em]"
+            data-cursor="interactive"
+          >
+            Falar Comigo
+            <span className="block h-px w-6 bg-foreground/40 sm:w-8" aria-hidden />
+          </a>
+        </div>
       </header>
 
       <div className="mt-8 grid gap-6 sm:mt-10 sm:gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-end lg:gap-10" data-hero-animate>
@@ -81,7 +96,7 @@ export function HeroSection() {
               </p>
             </div>
           </div>
-          <div className="grid gap-3 rounded-2xl border border-foreground/10 bg-background/80 p-4 backdrop-blur sm:gap-4 sm:rounded-3xl sm:p-6 md:grid-cols-3">
+          <div className="grid gap-3 rounded-2xl border border-foreground/10 bg-background/80 p-4 backdrop-blur sm:gap-4 sm:rounded-3xl sm:p-6 md:grid-cols-3 lg:gap-6">
             <div>
               <p className="text-[0.55rem] uppercase tracking-[0.3em] text-foreground/40 sm:text-[0.58rem] sm:tracking-[0.32em]">Vitórias Digitais</p>
               <p className="mt-1.5 font-display text-2xl uppercase tracking-[0.12em] text-foreground sm:mt-2 sm:text-3xl sm:tracking-[0.14em]">+32</p>
@@ -90,7 +105,7 @@ export function HeroSection() {
             <div>
               <p className="text-[0.55rem] uppercase tracking-[0.3em] text-foreground/40 sm:text-[0.58rem] sm:tracking-[0.32em]">Velocidade Média</p>
               <p className="mt-1.5 font-display text-2xl uppercase tracking-[0.12em] text-foreground sm:mt-2 sm:text-3xl sm:tracking-[0.14em]">98</p>
-              <p className="mt-1.5 text-[0.6rem] uppercase tracking-[0.28em] text-foreground/45 sm:mt-2 sm:text-xs sm:tracking-[0.3em]">lighthouse médio</p>
+              <p className="mt-1.5 text-[0.6rem] uppercase tracking-[0.28em] text-foreground/50 sm:mt-2 sm:text-xs sm:tracking-[0.3em]">performance score</p>
             </div>
             <div>
               <p className="text-[0.55rem] uppercase tracking-[0.3em] text-foreground/40 sm:text-[0.58rem] sm:tracking-[0.32em]">Base Técnica</p>

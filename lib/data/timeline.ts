@@ -25,7 +25,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     category: "On Track",
     location: "Florianópolis, Santa Catarina, Brasil",
     size: "lg",
-    image: "/img/hero-leonardo.png"
+    image: "/img/photos for cards/ldb click.webp"
   },
   {
     id: "2025-eleven-soft",
@@ -36,7 +36,8 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
       "Atuação como Desenvolvedor Full Stack entregando produtos digitais de ponta a ponta. Papel estratégico de Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor.",
     category: "On Track",
     location: "Palhoça, Santa Catarina, Brasil",
-    size: "md"
+    size: "md",
+    image: "/img/photos for cards/eleven soft.webp"
   },
   {
     id: "2025-acate-invest",
@@ -47,7 +48,8 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
       "Participação no ACATE Invest — Pitch Day, evento intenso com empreendedores competindo por patrocínio, ideias afiadas e energia alta. Oportunidade de networking e evolução profissional.",
     category: "Off Track",
     location: "Florianópolis, Santa Catarina, Brasil",
-    size: "sm"
+    size: "sm",
+    image: "/img/photos for cards/pitch day acate 2025.webp"
   },
   {
     id: "2025-acadepol",
@@ -58,7 +60,8 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
       "Participação no VII Seminário Internacional de Ciência, Tecnologia, Inovação e Segurança Pública, parceria entre ACADEPOL-SC, EGC e UFSC. Ambiente técnico com representantes de forças de segurança de diversas regiões do país.",
     category: "Off Track",
     location: "Florianópolis, Santa Catarina, Brasil",
-    size: "md"
+    size: "md",
+    image: "/img/photos for cards/policia civil acadepol canas 11-2025.webp"
   },
   {
     id: "2023-pentest",
@@ -69,7 +72,8 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
       "Certificação em Introdução ao Pentest na Prática pela Desec Security, aprofundando conhecimentos em segurança da informação e testes de penetração.",
     category: "On Track",
     location: "Online",
-    size: "sm"
+    size: "sm",
+    image: "/img/photos for cards/pentest desec.webp"
   },
   {
     id: "2016-tmot",
@@ -80,7 +84,8 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
       "Gerente de propriedades especializado em locações de temporada. Soluções completas para proprietários que buscam maximizar rentabilidade sem se preocupar com a operação. Gestão de reservas, check-in/out, limpeza e lavanderia.",
     category: "Off Track",
     location: "Florianópolis, Santa Catarina, Brasil",
-    size: "lg"
+    size: "lg",
+    image: "/img/photos for cards/tmot.webp"
   },
   {
     id: "2019-univali",
@@ -91,7 +96,8 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
       "Ingresso no curso de Bacharelado em Ciência da Computação. Base sólida em C, C++, PHP, Python e Java, aplicada à arquitetura e boas práticas em desenvolvimento full stack. Formação com ênfase em engenharia de software, sistemas operacionais, segurança e computação forense.",
     category: "On Track",
     location: "Balneário Camboriú, Santa Catarina, Brasil",
-    size: "md"
+    size: "md",
+    image: "/img/photos for cards/ciencias da computacao.webp"
   }
 ];
 

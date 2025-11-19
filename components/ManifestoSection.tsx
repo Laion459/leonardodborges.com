@@ -47,15 +47,15 @@ export function ManifestoSection() {
           Desenvolvedor Full Stack desde 2019 — Product Management desde 2025
         </p>
         <h2 className="font-display text-[2.4rem] uppercase tracking-[0.14em] sm:text-4xl sm:tracking-[0.18em] md:text-5xl md:tracking-[0.2em] lg:text-6xl" data-manifesto-title>
-          Entregando produtos completos,
+          Produtos completos,
           <span className="block text-accent">não apenas código.</span>
         </h2>
-        <div className="space-y-4 text-sm text-foreground/70 sm:text-base md:text-lg">
-          <p data-manifesto-text className="px-1 sm:px-0">
-            Atuo como Desenvolvedor Full Stack na Eleven Soft, entregando produtos digitais de ponta a ponta, do backend ao frontend, sempre com foco em métricas, experiência do usuário e impacto direto no negócio. Além do desenvolvimento, exerço papel estratégico de Product Manager informal, liderando projetos críticos e gerenciando entregas de alto valor.
+        <div className="space-y-4 text-sm text-foreground/75 sm:text-base md:text-lg">
+          <p data-manifesto-text className="px-1 sm:px-0 font-medium">
+            Entregando soluções que reduzem tempo de operação em até 60%, aumentam conversões e impulsionam negócios com arquitetura escalável e experiência de usuário impecável.
           </p>
           <p data-manifesto-text className="px-1 sm:px-0">
-            Principais conquistas: Refatoração dos sites da empresa com nova arquitetura (React + Tailwind + Blade/Filament), Keyring (app web completo para gestão de licenças), ESH (sistema proprietário de monitoramento), integração com Asaas e APIs REST documentadas com Swagger, testadas com PHPUnit e deployadas com Docker/PostgreSQL.
+            Na Eleven Soft, lidero projetos críticos end-to-end: Keyring (gestão de licenças completa), ESH (monitoramento em tempo real), refatoração de arquitetura moderna e integrações financeiras robustas. Cada entrega combina estratégia, engenharia e impacto mensurável.
           </p>
         </div>
       </div>

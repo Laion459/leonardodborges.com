@@ -1,8 +1,12 @@
 "use client";
 
+"use client";
+
+import Image from "next/image";
 import { useEffect, useMemo, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { PARTNERSHIPS } from "@/lib/data/partners";
+import { PartnersCarousel } from "@/components/PartnersCarousel";
 
 const PARTNERSHIP_VALUES = [
   {
@@ -86,8 +90,21 @@ export default function PartnershipsPage() {
                 <span>{partner.year}</span>
                 <span className="rounded-full border border-foreground/20 px-3 py-1 sm:px-4">{partner.segment}</span>
               </div>
-              <h2 className="font-display text-xl uppercase tracking-[0.14em] text-foreground sm:text-[2rem] sm:tracking-[0.16em]">{partner.name}</h2>
-              <p className="text-sm text-foreground/70 sm:text-base">{partner.description}</p>
+              <div className="flex items-center gap-4">
+                {partner.logo && (
+                  <div className="relative h-16 w-32 flex-shrink-0 overflow-hidden rounded-xl border border-foreground/10 bg-background/60 p-2 sm:h-20 sm:w-40">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <h2 className="font-display text-xl uppercase tracking-[0.14em] text-foreground sm:text-[2rem] sm:tracking-[0.16em]">{partner.name}</h2>
+              </div>
+              <p className="text-sm text-foreground/75 sm:text-base">{partner.description}</p>
               <div className="flex flex-wrap gap-2 text-[0.65rem] uppercase tracking-[0.28em] text-foreground/50 sm:gap-3 sm:text-xs sm:tracking-[0.3em]">
                 {partner.scope.map((item) => (
                   <span key={`${partner.id}-${item}`} className="rounded-full border border-foreground/20 px-3 py-1 sm:px-4">
@@ -99,7 +116,7 @@ export default function PartnershipsPage() {
             <div className="flex flex-col justify-between gap-4 sm:gap-5">
               <div className="rounded-xl border border-foreground/15 bg-background/70 p-5 sm:rounded-[2rem] sm:p-6">
                 <p className="text-[0.6rem] uppercase tracking-[0.28em] text-foreground/45 sm:text-[0.62rem] sm:tracking-[0.3em]">Como trabalhamos</p>
-                <p className="mt-2 text-xs text-foreground/70 sm:mt-3 sm:text-sm">
+                <p className="mt-2 text-xs text-foreground/75 sm:mt-3 sm:text-sm">
                   Workshops iniciais para alinhar narrativa, cronograma e design system. Sprints quinzenais com entregas revisadas e
                   dashboards compartilhados.
                 </p>
@@ -110,16 +127,18 @@ export default function PartnershipsPage() {
                   target={partner.website.startsWith("http") ? "_blank" : undefined}
                   rel={partner.website.startsWith("http") ? "noopener noreferrer" : undefined}
                   data-cursor="interactive"
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-accent transition hover:text-accent/80 sm:gap-3 sm:tracking-[0.32em]"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-accent transition-all hover:text-accent/80 hover:gap-3 sm:tracking-[0.32em]"
                 >
-                  Ver estudo
-                  <span className="block h-px w-6 bg-accent sm:w-8" aria-hidden />
+                  Ver Projeto
+                  <span className="block h-px w-6 bg-accent transition-all hover:w-8 sm:w-8" aria-hidden />
                 </a>
               )}
             </div>
           </article>
         ))}
       </section>
+
+      <PartnersCarousel />
     </div>
   );
 }

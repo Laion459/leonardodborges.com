@@ -71,7 +71,7 @@ export function TimelineSection() {
         </p>
       </header>
 
-      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3" data-animate>
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3" data-animate>
         {events.map((event) => {
           const sizeClass = SIZE_CLASS[event.size];
           const tagColor = event.category === "On Track" ? "bg-accent/20 text-accent" : "bg-foreground/10 text-foreground/80";
@@ -97,7 +97,7 @@ export function TimelineSection() {
                 </p>
               </div>
 
-              <p className="text-xs leading-relaxed text-foreground/70 sm:text-sm md:text-base">{event.description}</p>
+              <p className="text-xs leading-relaxed text-foreground/75 sm:text-sm md:text-base">{event.description}</p>
 
               <div className="mt-auto flex flex-col gap-1.5 text-[0.65rem] uppercase tracking-[0.32em] text-foreground/40 sm:flex-row sm:items-center sm:justify-between sm:text-xs sm:tracking-[0.35em]">
                 <span>{event.location}</span>
@@ -132,7 +132,7 @@ export function TimelineSection() {
           data-cursor="interactive"
           onClick={handleSkip}
         >
-          Continuar Experiência
+          Explorar Projetos Completos
           <span className="block h-px w-10 bg-accent" aria-hidden />
         </a>
       </div>

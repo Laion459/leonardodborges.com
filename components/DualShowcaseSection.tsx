@@ -11,7 +11,7 @@ const ITEMS = [
     title: "Resultados em Produção",
     description:
       "Projetos comerciais, arquitetura escalável e experiências digitais com foco em conversão e impacto de negócio.",
-    cta: "Ver estudos de caso",
+    cta: "Explorar Projetos",
     href: "/on-track",
     image: "/img/on-track.png",
     accent: "bg-accent/10 border-accent/40 text-accent"
